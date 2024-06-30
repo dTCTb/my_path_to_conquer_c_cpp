@@ -1,0 +1,8 @@
+ignore/
+*.ign
+*.pdf
+*dSYM
+*.o
+*.s
+bin/
+foo*
