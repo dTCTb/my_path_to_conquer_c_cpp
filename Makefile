@@ -1,7 +1,7 @@
 CC=clang++
 CFLAGS=-Wall -g
 BIN=./bin
-TARGET= 1.10 2.1 2.5 2.13 3.1 3.3 3.5
+TARGET= 1.10 2.1 2.5 2.13 3.1 3.3 3.5 3.7 3.10
 
 all: $(TARGET)
 
@@ -25,6 +25,12 @@ all: $(TARGET)
 
 3.5: 3.5.cpp
 	$(CC) $(CFLAGS) -o $(BIN)/$@ $^
+
+3.7: 3.7.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $^
+
+3.10: 3.10_main.cpp 3.9_GradeBook.h
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
 
 clean:
 	rm -fr $(BIN)/$(TARGET) *.dSYM $(BIN)/*.dSYM
