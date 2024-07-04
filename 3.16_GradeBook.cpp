@@ -5,7 +5,15 @@
 #include <iostream>
 using namespace std;
 
-GradeBook::GradeBook(string name) { setCourseName(name); }
+GradeBook::GradeBook(string gradeBook, string name) : gradeBookName(gradeBook) {
+    setCourseName(name);
+    initCourseName(gradeBook);
+}
+
+void GradeBook::initCourseName(string gradeBook) const {
+    cout << gradeBook << "'s initial course name is: " << getCourseName()
+         << endl;
+}
 
 // function that sets the course name;
 // ensure that the course name has at most 25 characters

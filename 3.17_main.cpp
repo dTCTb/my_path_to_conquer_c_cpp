@@ -7,13 +7,9 @@ using namespace std;
 int main() {
     // create two GradeBook objects;
     // initial course name of gradeBook1 is too long
-    GradeBook gradeBook1("CS101 Introduction to Programming in C++");
-    GradeBook gradeBook2("CS102 C++ Data Structures");
-
-    cout << "gradeBook1's initial course name is: "
-         << gradeBook1.getCourseName() << "\n"
-         << "gradeBook2's initial course name is: "
-         << gradeBook2.getCourseName() << endl;
+    GradeBook gradeBook1("gradeBook1",
+                         "CS101 Introduction to Programming in C++");
+    GradeBook gradeBook2("gradeBook2", "CS102 C++ Data Structures");
 
     // modify gradeBook1's courseName (with a valid-length string)
     gradeBook1.setCourseName("CS101 C++ Programming");
