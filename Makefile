@@ -2,7 +2,7 @@ CC=clang++
 CFLAGS=-Wall -g
 BIN=./bin
 OBJ=./ignore/obj
-TARGET= 1.10 2.1 2.5 2.13 3.1 3.3 3.5 3.7 3.10 3.13
+TARGET= 1.10 2.1 2.5 2.13 3.1 3.3 3.5 3.7 3.10 3.13 3.17
 
 all: $(TARGET)
 
@@ -38,6 +38,10 @@ all: $(TARGET)
 
 3.12_GradeBook.o: 3.12_GradeBook.cpp 3.11_GradeBook.h
 	$(CC) -c $< -o $(OBJ)/$@
+
+3.17: 3.17_main.cpp 3.16_GradeBook.cpp 3.15_GradeBook.h
+	$(CC) -c 3.16_GradeBook.cpp -o $(OBJ)/3.16_GradeBook.o
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $< $(OBJ)/3.16_GradeBook.o
 
 clean:
 	rm -fr $(BIN)/$(TARGET) *.dSYM $(BIN)/*.dSYM
