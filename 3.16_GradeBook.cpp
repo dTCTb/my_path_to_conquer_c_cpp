@@ -1,3 +1,4 @@
+// clang-format off
 // Fig. 3.16: 3.16_GradeBook.cpp
 // Implementations of the GradeBook member-function definitions.
 // The setCourseName functino performs validation.
@@ -24,8 +25,7 @@ void GradeBook::setCourseName(string name) {
         // set courseName to first 25 characters of parameter name
         courseName = name.substr(0, 25); // start at 0, length of 25
         cerr << "Name \"" << name << "\" exceeds maximum length (25).\n"
-             << "Limiting courseName to first 25 characters.\n"
-             << endl;
+                "Limiting courseName to first 25 characters.\n" << endl;
     }
 }
 
