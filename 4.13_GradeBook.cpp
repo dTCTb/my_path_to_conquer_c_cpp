@@ -52,6 +52,7 @@ void GradeBook::determineClassAverage() const {
                 printf("%3d\n", *p);
             cout << "Total: " << total << " (" << gradeCounter << '/' << max
                  << ")" << endl;
+            grade = 0; // reset grade
         } else {
             // otherwise flush stdin and print the reminder
             fflush(stdin);

@@ -1,9 +1,11 @@
 // Fig. 4.14: fig04_14.cpp
 // Create GradeBook object and invoke its determineClassAverage function.
 #include "4.12_GradeBook.h"
+#include <cstdlib>
 
-int main() {
-    GradeBook myGradeBook("CS101 C++ Programming", 3);
+int main(int argc, char **argv) {
+    int max = argc == 2 ? atoi(argv[1]) : 10;
+    GradeBook myGradeBook("CS101 C++ Programming", max);
 
     myGradeBook.displayMessage();
     myGradeBook.determineClassAverage();
