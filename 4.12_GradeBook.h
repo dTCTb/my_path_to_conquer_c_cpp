@@ -6,9 +6,11 @@
 class GradeBook {
   private:
     std::string courseName;
+    const int max;
+    int *rec = new int[max]; // record down the inputed grades
 
   public:
-    explicit GradeBook(std::string name);
+    explicit GradeBook(std::string name, int max);
     void setCourseName(std::string name);
     std::string getCourseName() const;
     void displayMessage() const;

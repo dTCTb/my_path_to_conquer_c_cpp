@@ -3,7 +3,7 @@
 #include "4.12_GradeBook.h"
 
 int main() {
-    GradeBook myGradeBook("CS101 C++ Programming");
+    GradeBook myGradeBook("CS101 C++ Programming", 3);
 
     myGradeBook.displayMessage();
     myGradeBook.determineClassAverage();
