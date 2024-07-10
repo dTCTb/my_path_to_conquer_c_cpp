@@ -6,7 +6,7 @@ CH1=1.10
 CH2=2.1 2.5 2.13
 CH3=3.1 3.3 3.5 3.7 3.10 3.13 3.17
 CH4=4.10 4.14 4.16
-CH5=5.1 5.2 5.5 5.6 5.7 5.11
+CH5=5.1 5.2 5.5 5.6 5.7 5.11 5.13 5.14 5.18
 TARGET= $(CH1) $(CH2) $(CH3) $(CH4) $(CH5)
 
 all: $(TARGET)
@@ -87,6 +87,15 @@ all: $(TARGET)
 5.11: 5.11_main.cpp 5.10_GradeBook.cpp 5.9_GradeBook.h
 	$(CC) -c 5.10_GradeBook.cpp -o $(OBJ)/5.10_GradeBook.o
 	$(CC) $(CFLAGS) -o $(BIN)/$@ $< $(OBJ)/5.10_GradeBook.o
+
+5.13: 5.13.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $^
+
+5.14: 5.14.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $^
+
+5.18: 5.18.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $^
 
 # Other
 
