@@ -2,12 +2,21 @@ CC=clang++
 CFLAGS=-Wall -g
 BIN=./bin
 OBJ=./ignore/obj
-TARGET= 1.10 2.1 2.5 2.13 3.1 3.3 3.5 3.7 3.10 3.13 3.17 4.10 4.14 4.16
+CH1=1.10
+CH2=2.1 2.5 2.13
+CH3=3.1 3.3 3.5 3.7 3.10 3.13 3.17
+CH4=4.10 4.14 4.16
+CH5=5.1 5.2 5.5 5.6 5.7 5.11
+TARGET= $(CH1) $(CH2) $(CH3) $(CH4) $(CH5)
 
 all: $(TARGET)
 
+# Chapter 1
+
 1.10: 1.10.cpp
 	$(CC) $(CFLAGS) -o $(BIN)/$@ $^
+
+# Chapter 2
 
 2.1: 2.1.cpp
 	$(CC) $(CFLAGS) -o $(BIN)/$@ $^
@@ -20,6 +29,8 @@ all: $(TARGET)
 
 3.1: 3.1.cpp
 	$(CC) $(CFLAGS) -o $(BIN)/$@ $^
+
+# Chapter 3
 
 3.3: 3.3.cpp
 	$(CC) $(CFLAGS) -o $(BIN)/$@ $^
@@ -43,6 +54,8 @@ all: $(TARGET)
 	$(CC) -c 3.16_GradeBook.cpp -o $(OBJ)/3.16_GradeBook.o
 	$(CC) $(CFLAGS) -o $(BIN)/$@ $< $(OBJ)/3.16_GradeBook.o
 
+# Chapter 4
+
 4.10: 4.10_main.cpp 4.9_GradeBook.cpp 4.8_GradeBook.h
 	$(CC) -c 4.9_GradeBook.cpp -o $(OBJ)/4.9_GradeBook.o
 	$(CC) $(CFLAGS) -o $(BIN)/$@ $< $(OBJ)/4.9_GradeBook.o
@@ -53,6 +66,29 @@ all: $(TARGET)
 
 4.16: 4.16.cpp
 	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+# Chapter 5
+
+5.1: 5.1.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+5.2: 5.2.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+5.5: 5.5.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+5.6: 5.6.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+5.7: 5.7.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+5.11: 5.11_main.cpp 5.10_GradeBook.cpp 5.9_GradeBook.h
+	$(CC) -c 5.10_GradeBook.cpp -o $(OBJ)/5.10_GradeBook.o
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $< $(OBJ)/5.10_GradeBook.o
+
+# Other
 
 clean:
 	rm -fr $(BIN)/$(TARGET) *.dSYM $(BIN)/*.dSYM
