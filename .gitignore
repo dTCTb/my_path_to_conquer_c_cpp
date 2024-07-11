@@ -6,3 +6,4 @@ ignore/
 *.s
 bin/
 foo*
+.idea
