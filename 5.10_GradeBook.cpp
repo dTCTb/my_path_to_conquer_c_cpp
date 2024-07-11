@@ -1,18 +1,18 @@
 // Fig. 5.10: 5.10_GradeBook.cpp
 // Member-function definitions for class GradeBook that
 // uses a switch statement to count A, B, C, D, E, F grades.
-#include "5.9_GradeBook.h" // include defintions of class GradeBook
+#include "5.9_GradeBook.h" // include definitions of class GradeBook
 #include <iostream>
 using namespace std;
 
 // constructor initializes courseName with string supplied as argument;
 // initializes counter data members to 0
-GradeBook::GradeBook(string name)
+GradeBook::GradeBook(const string& name)
     : aCount(0), bCount(0), cCount(0), dCount(0), eCount(0), fCount(0) {
     setCourseName(name);
 }
 
-void GradeBook::setCourseName(string name) {
+void GradeBook::setCourseName(const string& name) {
     if (name.size() <= 25)
         courseName = name;
     else {

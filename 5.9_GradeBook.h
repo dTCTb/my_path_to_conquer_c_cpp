@@ -5,8 +5,8 @@
 
 class GradeBook {
   public:
-    explicit GradeBook(std::string);
-    void setCourseName(std::string);
+    explicit GradeBook(const std::string&);
+    void setCourseName(const std::string&);
     std::string getCourseName() const;
     void displayMessage() const;
     void inputGrades(); // input arbitrary number of grades from user
