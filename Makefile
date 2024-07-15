@@ -8,7 +8,8 @@ CH3=3.1 3.3 3.5 3.7 3.10 3.13 3.17
 CH4=4.10 4.14 4.16
 CH5=5.1 5.2 5.5 5.6 5.7 5.11 5.13 5.14 5.18
 CH6=6.13 6.14 6.18 6.19 6.20 6.21 6.22 6.23 6.24 6.26
-TARGET= $(CH1) $(CH2) $(CH3) $(CH4) $(CH5) $(CH6)
+CH7=7.3 7.4 7.5 7.8 7.9 7.10 7.11 7.12 7.13
+TARGET= $(CH1) $(CH2) $(CH3) $(CH4) $(CH5) $(CH6) $(CH7)
 
 all: $(TARGET)
 
@@ -130,6 +131,34 @@ all: $(TARGET)
 	nm $(BIN)/$@.o
 
 6.26: 6.26_maximum.cpp 6.25_maximum.h
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+7.3: 7.3.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+7.4: 7.4.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+7.5: 7.5.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+7.8: 7.8.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+7.9: 7.9.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+7.10: 7.10.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+7.11: 7.11.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+7.12: 7.12.cpp
+	$(CC) -o $(OBJ)/$@.o -c  $<
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+7.13: 7.13.cpp
 	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
 
 # Other
