@@ -9,7 +9,8 @@ CH4=4.10 4.14 4.16
 CH5=5.1 5.2 5.5 5.6 5.7 5.11 5.13 5.14 5.18
 CH6=6.13 6.14 6.18 6.19 6.20 6.21 6.22 6.23 6.24 6.26
 CH7=7.3 7.4 7.5 7.8 7.9 7.10 7.11 7.12 7.13 7.20 7.25
-TARGET= $(CH1) $(CH2) $(CH3) $(CH4) $(CH5) $(CH6) $(CH7)
+MY=my_merge_sort
+TARGET= $(CH1) $(CH2) $(CH3) $(CH4) $(CH5) $(CH6) $(CH7) $(MY)
 
 all: $(TARGET)
 
@@ -168,6 +169,9 @@ all: $(TARGET)
 	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
 
 7.25: ch7/7.25.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+my_merge_sort: my_merge_sort.cpp
 	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
 
 # Other
