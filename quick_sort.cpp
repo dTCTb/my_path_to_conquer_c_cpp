@@ -76,7 +76,7 @@ template <typename a>void quick_sort(a &arr, int m) {
 }
 
 template <typename a> void assert(a &arr, a &ans) {
-    if (arr == ans) cout << "Correct" << endl;
+    if (arr == ans) cout << "\e[34;1mCorrect\e[0m" << endl;
 }
 
 int main() {
