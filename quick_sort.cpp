@@ -2,6 +2,7 @@
 #include <array>
 #include <iomanip>
 #include <iostream>
+#include "termcolor.h"
 using namespace std;
 
 // testing array in correct ascending order
@@ -57,7 +58,7 @@ template <typename a> void quick_sort_mid(a &arr, int left, int right) {
 
 template <typename a>void quick_sort(a &arr, int m) {
     cout << ++::count << ".\n";
-    cout << "before: "; print_arr(arr);
+    cout << "before: " << BLUC; print_arr(arr);
     switch (m) {
         case 0:
             // there is a method that pivot at the beginning
@@ -72,11 +73,12 @@ template <typename a>void quick_sort(a &arr, int m) {
             cout << "0:pre (not available yet), 1:mid, 2:post" << endl;
             return;
     }
-    cout << " after: "; print_arr(arr);
+    cout << RESET " after: " << ORAC; print_arr(arr);
+    cout << RESET;
 }
 
 template <typename a> void assert(a &arr, a &ans) {
-    if (arr == ans) cout << "\e[34;1mCorrect\e[0m" << endl;
+    if (arr == ans) cout << GRE("Correct") << endl;
 }
 
 int main() {
