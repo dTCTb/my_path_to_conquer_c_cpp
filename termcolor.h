@@ -8,7 +8,7 @@
 #define TERMCOLOR_H
 
 // CONTROL SEQUENCE INTRODUCER (CSI) SETUP
-#define CSI             "\e[" // "\033["
+#define CSI             "\033[" // "\e["
 #define RESET           CSI  "0m"
 #define RESET_FG_COLOR  CSI "38m"
 #define RESET_BG_COLOR  CSI "48m"
