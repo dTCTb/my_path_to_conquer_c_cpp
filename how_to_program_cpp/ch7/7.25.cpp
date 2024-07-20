@@ -1,6 +1,5 @@
 // Fig. 7.25: fig07_25.cpp
-// Demostrating C++ Standard Library class template vector.
-// #include <iomanip>
+// Demonstrating C++ Standard Library class template vector.
 #include <iostream>
 #include <stdexcept>
 #include <vector>
@@ -36,14 +35,14 @@ int main() {
     if (integers1 != integers2)
         cout << "integers1 and integers2 are not equal" << endl;
 
-    vector<int> integers3(integers1);
+    vector<int> integers3(integers1); // copy constructor
 
     cout << "\nSize of vector integers3 is " << integers3.size()
          << "\nvector after initialization:" << endl;
     outputVector(integers3);
 
     cout << "\nAssigning integers2 to integers1:" << endl;
-    integers1 = integers2;
+    integers1 = integers2; // overloaded assignment operator
 
     cout << "integers1:" << endl;
     outputVector(integers1);
