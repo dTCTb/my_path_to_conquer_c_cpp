@@ -16,6 +16,7 @@ typedef int oldC[rows][columns];
 void printArray(const r2c3 &);
 void printArray(const oldC *);
 void stupid_printArray(const array<array<int, columns>, rows> &a); // from book
+void still_stupid(const r2c3 &);
 
 int main() {
     r2c3 array1 = {1, 2, 3, 4, 5, 6};
@@ -24,6 +25,7 @@ int main() {
 
     cout << prompt(1) << endl;
     printArray(array1);
+    still_stupid(array1);
 
     cout << prompt(2) << endl;
     printArray(array2);
@@ -56,4 +58,10 @@ void stupid_printArray(const array<array<int, columns>, rows> &a) {
             cout << element << ' ';
         cout << endl;
     }
+}
+
+void still_stupid(const r2c3 &a) {
+    for (int i = 0; i < a.size(); i++)
+        for (int j = 0; j < a[i].size(); j++)
+            cout << "a[" << i << "][" << j << "] = " << a[i][j] << endl;
 }
