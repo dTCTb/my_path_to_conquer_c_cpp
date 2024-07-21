@@ -7,3 +7,5 @@ ignore/
 bin/
 foo*
 .idea
+.cache/
+compile_commands.json
