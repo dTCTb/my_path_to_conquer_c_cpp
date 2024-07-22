@@ -2,6 +2,6 @@
 
 int main() {
     Simpletron simpletron;
-    simpletron_driver(simpletron);
+    Simpletron::simpletron_driver(simpletron);
     return 0;
 }

@@ -4,7 +4,7 @@
 
 const std::string Simpletron::wel_msg[] = {
     "***************************************************************",
-    "*** Welcome to Simpletron!                                  ***",
+    "***                  Welcome to Simpletron!                 ***",
     "*** Please enter you program one instruction (or data word) ***",
     "*** at a time. I will type the location number and a        ***",
     "*** question mark (?). You then type the word for that      ***",
@@ -24,7 +24,7 @@ const std::string Simpletron::help_msg[] = {
     "*** 11yy : print the value of yy to screen                  ***",
     "*** 20yy : load the value of yy to register                 ***",
     "*** 21yy : put the value of register to yy                  ***",
-    "***         ~~~ result of 30 ~ 33 is stored in register ~~~ ***",
+    "***     ~~~ result of 30 ~ 33 is stored in register ~~~     ***",
     "*** 30yy : value of register ADD value of yy                ***",
     "*** 31yy : value of register SUBTRACT value of yy           ***",
     "*** 32yy : value of register DIVIDE value of yy             ***",
@@ -164,7 +164,7 @@ void Simpletron::toggle_debug() { debug = !debug; }
 
 void Simpletron::reset_cmd_count() { cmd_count = 0; }
 
-void simpletron_driver(Simpletron &sml) {
+void Simpletron::simpletron_driver(Simpletron &sml) {
     while (true) {
         if (sml.debug)
             sml.display_memory();

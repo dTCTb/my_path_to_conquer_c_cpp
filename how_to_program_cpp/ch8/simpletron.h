@@ -57,5 +57,3 @@ class Simpletron {
     void reset_cmd_count();
     void help() const;
 };
-
-void simpletron_driver(Simpletron &host);
