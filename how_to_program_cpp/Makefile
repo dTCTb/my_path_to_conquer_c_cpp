@@ -10,7 +10,7 @@ CH5=5.1 5.2 5.5 5.6 5.7 5.11 5.13 5.14 5.18
 CH6=6.13 6.14 6.18 6.19 6.20 6.21 6.22 6.23 6.24 6.26
 CH7=7.3 7.4 7.5 7.8 7.9 7.10 7.11 7.12 7.13 7.17 7.18 7.20 7.24 7.25
 CH8=8.4 8.6 8.7 8.10 8.13 8.14 8.17 sml ol_extr_op
-CH9=9.3 9.6
+CH9=9.3 9.6 9.9
 TARGET= $(CH1) $(CH2) $(CH3) $(CH4) $(CH5) $(CH6) $(CH7) $(CH8)
 
 all: $(TARGET)
@@ -216,6 +216,9 @@ ol_extr_op: ch8/overloaded_extraction_operator.cpp
 
 9.6: ch9/9.6_main.cpp ch9/9.5_Time.cpp ch9/9.4_Time.h
 	$(CC) $(CFLAGS) -o $(BIN)/$@ $< ch9/9.5_Time.cpp
+
+9.9: ch9/9.9_main.cpp ch9/9.8_CreateAndDestroy.cpp ch9/9.7_CreateAndDestroy.h
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $< ch9/9.8_CreateAndDestroy.cpp
 
 # Other
 
