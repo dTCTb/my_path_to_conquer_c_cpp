@@ -5,7 +5,7 @@
 #include <iostream>
 using namespace std;
 
-int main() {
+void usingRef() {
     Time t;
 
     unsigned &hourRef = t.badSetHour(20);
@@ -23,6 +23,32 @@ int main() {
          << "t.badSetHour(12) as an lvalue, invalid hour: " << t.getHour()
          << "\n***********************************************" << endl;
 }
+
+void usingPtr() {
+    Time t;
+
+    unsigned *hourPtr = t.badbad(20);
+
+    cout << "Valid hour before modification: " << *hourPtr;
+    *hourPtr = 30;
+    cout << "\nInvalid hour after modification: " << t.getHour();
+
+    *(t.badbad(12)) = 74;
+
+    cout << "\n\n***********************************************\n"
+         << "POOR PROGRAMMING PRACTICE!!!!!!!\n"
+         << "t.badbad(12) as an lvalue, invalid hour: " << t.getHour()
+         << "\n***********************************************" << endl;
+}
+
+int main() {
+    cout << "using Reference to demonstrating:" << endl;
+    usingRef();
+    cout << "- -- - -- - -- - -- - -- - -- - -- - -- - -- - -- " << endl;
+    cout << "using Pointer to demonstrating:" << endl;
+    usingPtr();
+    return 0;
+}
 /* execution result
  * Valid hour before modification: 20
  * Invalid hour after modification: 30
@@ -30,5 +56,13 @@ int main() {
  * ***********************************************
  * POOR PROGRAMMING PRACTICE!!!!!!!
  * t.badSetHour(12) as an lvalue, invalid hour: 74
+ * ***********************************************
+ * - -- - -- - -- - -- - -- - -- - -- - -- - -- - --
+ * Valid hour before modification: 20
+ * Invalid hour after modification: 30
+ *
+ * ***********************************************
+ * POOR PROGRAMMING PRACTICE!!!!!!!
+ * t.badbad(12) as an lvalue, invalid hour: 74
  * ***********************************************
  */

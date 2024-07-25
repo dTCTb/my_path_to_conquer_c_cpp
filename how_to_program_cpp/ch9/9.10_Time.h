@@ -11,6 +11,8 @@ class Time {
     void setTime(int, int, int);
     unsigned getHour() const;
     unsigned &badSetHour(int); // dangerous reference return
+    unsigned *badbad(int);
+
   private:
     unsigned hour;
     unsigned minute;

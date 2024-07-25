@@ -25,3 +25,11 @@ unsigned &Time::badSetHour(int hh) {
         throw invalid_argument("hour must be 0-23");
     return hour; // dangerous reference return
 }
+
+unsigned *Time::badbad(int hh) {
+    if (hh >= 0 && hh < 24)
+        hour = hh;
+    else
+        throw invalid_argument("hour must be 0-23");
+    return &hour;
+}
