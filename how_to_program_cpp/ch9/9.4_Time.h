@@ -20,6 +20,9 @@ class Time {
     void printUniversal() const;
     void printStandard() const;
 
+    // dedicate for 9.16.cpp
+    void printStandard9_16();
+
   private:
     unsigned hour;
     unsigned minute;

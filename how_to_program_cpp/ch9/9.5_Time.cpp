@@ -53,3 +53,10 @@ void Time::printStandard() const {
          << setfill('0') << setw(2) << getMinute() << ':' << setw(2)
          << getSecond() << (hour < 12 ? " AM" : " PM");
 }
+
+// dedicate for 9.16.cpp
+void Time::printStandard9_16() {
+    cout << ((getHour() == 0 || getHour() == 12) ? 12 : getHour() % 12) << ':'
+         << setfill('0') << setw(2) << getMinute() << ':' << setw(2)
+         << getSecond() << (hour < 12 ? " AM" : " PM");
+}
