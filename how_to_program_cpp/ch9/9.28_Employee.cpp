@@ -4,6 +4,8 @@
 #include <iostream>
 using namespace std;
 
+unsigned friendCount() { return Employee::count; } // added by me
+
 // define and initialize static data member at global namespace scope
 unsigned Employee::count = 0;
 // define static member function that returns number of Employee objects

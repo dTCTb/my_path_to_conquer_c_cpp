@@ -5,6 +5,8 @@
 #define EMPLOYEE_H
 #include <string>
 class Employee {
+    friend unsigned friendCount(); // added by me
+
   public:
     Employee(const std::string &, const std::string &);
     ~Employee();
