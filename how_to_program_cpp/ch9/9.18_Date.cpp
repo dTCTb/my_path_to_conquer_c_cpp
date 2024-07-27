@@ -28,6 +28,15 @@ Date::~Date() {
     cout << endl;
 }
 
+Date::Date(const Date &s) {
+    cout << "Date object copy constructor for date ";
+    this->month = s.month;
+    this->day = s.day;
+    this->year = s.year;
+    print();
+    cout << endl;
+}
+
 unsigned Date::checkDay(unsigned testDay) const {
     static const array<unsigned, monthsPerYear + 1> daysPerMonth = {
         0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};

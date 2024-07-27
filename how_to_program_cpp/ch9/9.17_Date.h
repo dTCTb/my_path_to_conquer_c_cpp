@@ -9,6 +9,7 @@ class Date {
     explicit Date(unsigned = 1, unsigned = 1, unsigned = 1900);
     void print() const;
     ~Date();
+    Date(const Date &);
 
   private:
     unsigned month;
