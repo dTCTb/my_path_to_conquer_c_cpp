@@ -10,7 +10,8 @@ CH5=5.1 5.2 5.5 5.6 5.7 5.11 5.13 5.14 5.18
 CH6=6.13 6.14 6.18 6.19 6.20 6.21 6.22 6.23 6.24 6.26
 CH7=7.3 7.4 7.5 7.8 7.9 7.10 7.11 7.12 7.13 7.17 7.18 7.20 7.24 7.25
 CH8=8.4 8.6 8.7 8.10 8.13 8.14 8.17 sml ol_extr_op
-CH9=9.3 9.6 9.9 9.12
+CH9=9.3 9.6 9.9 9.12 9.15 9.16 9.21 9.22 9.23 9.26 9.29 saving_account
+CH10=10.1
 TARGET= $(CH1) $(CH2) $(CH3) $(CH4) $(CH5) $(CH6) $(CH7) $(CH8)
 
 all: $(TARGET)
@@ -205,8 +206,6 @@ all: $(TARGET)
 sml: ch8/sml.cpp ch8/simpletron.cpp ch8/simpletron.h
 	$(CC) $(CFLAGS) -c -o $(OBJ)/simpletron.o ch8/simpletron.cpp
 	$(CC) $(CFLAGS) -o $(BIN)/$@ $< $(OBJ)/simpletron.o
-	clear
-	$(BIN)/sml
 
 ol_extr_op: ch8/overloaded_extraction_operator.cpp
 	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
@@ -222,6 +221,43 @@ ol_extr_op: ch8/overloaded_extraction_operator.cpp
 
 9.12: ch9/9.12_main.cpp ch9/9.11_Time.cpp ch9/9.10_Time.h
 	$(CC) $(CFLAGS) -o $(BIN)/$@ $< ch9/9.11_Time.cpp
+
+9.15: ch9/9.13-15.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+9.16: ch9/9.16.cpp ch9/9.4_Time.h ch9/9.5_Time.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $< ch9/9.5_Time.cpp
+	@echo "9.16.cpp not suppose to compile as,"
+	@grep error $<
+
+9.21: ch9/9.21_main.cpp ch9/9.18_Date.cpp ch9/9.20_Employee.cpp ch9/9.17_Date.h ch9/9.19_Employee.h
+	@$(CC) $(CFLAGS) -c -o $(OBJ)/9.18_Date.o ch9/9.18_Date.cpp
+	@$(CC) $(CFLAGS) -c -o $(OBJ)/9.20_Employee.o ch9/9.20_Employee.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $< $(OBJ)/9.18_Date.o $(OBJ)/9.20_Employee.o
+
+9.22: ch9/9.22.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+9.23: ch9/9.23.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+9.26: ch9/9.26_main.cpp ch9/9.25_Time.cpp ch9/9.24_Time.h
+	$(CC) $(CFLAGS) -o $(OBJ)/lib9.25_Time.dylib -shared -fPIC ch9/9.25_Time.cpp
+	$(CC) $(CFLAGS) -o $(OBJ)/9.25_Time.o -c ch9/9.25_Time.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@_static $< $(OBJ)/9.25_Time.o
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $< -L$(OBJ) -l9.25_Time
+
+9.29: ch9/9.29_main.cpp ch9/9.28_Employee.cpp ch9/9.27_Employee.h
+	$(CC) $(CFLAGS) -o $(OBJ)/lib9.28_Employee.dylib -shared -fPIC ch9/9.28_Employee.cpp
+	$(CC) $(CFLAGS) -o $(OBJ)/9.28_Employee.o -c ch9/9.28_Employee.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@_static $< $(OBJ)/9.28_Employee.o
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $< -L$(OBJ) -l9.28_Employee
+
+saving_account: ch9/saving_account.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+10.1: ch10/10.1.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
 
 # Other
 

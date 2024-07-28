@@ -50,6 +50,7 @@ int main() {
     return 0;
 }
 /* execution result
+ * using Reference to demonstrating:
  * Valid hour before modification: 20
  * Invalid hour after modification: 30
  *
@@ -58,6 +59,7 @@ int main() {
  * t.badSetHour(12) as an lvalue, invalid hour: 74
  * ***********************************************
  * - -- - -- - -- - -- - -- - -- - -- - -- - -- - --
+ * using Pointer to demonstrating:
  * Valid hour before modification: 20
  * Invalid hour after modification: 30
  *
