@@ -8,9 +8,14 @@
 using namespace std;
 
 void book();
+void test_init() {
+    Array a{1, 2, 3, 4, 5};
+    cout << "\nArray object initialized by initializer list:\n" << a;
+}
 
 int main() {
     book();
+    test_init();
     return 0;
 }
 

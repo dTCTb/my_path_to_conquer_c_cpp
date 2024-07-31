@@ -1,6 +1,7 @@
 // Fig. 10.11: 10.11_Array.cpp
 // Array class member- and friend- function definitions
 #include "10.10_Array.h"
+#include <initializer_list>
 #include <iomanip>
 #include <iostream>
 #include <stdexcept>
@@ -30,6 +31,12 @@ Array::Array(int arraySize)
     // 其實我唔知點解書要咁做，因為就算無都好，啲element 都係set 咗做0
     // for (size_t i = 0; i < size; ++i)
     //     ptr[i] = 0;
+}
+
+Array::Array(const initializer_list<int> &list) : Array(list.size()) {
+    size_t i = 0;
+    for (int val : list)
+        ptr[i++] = val;
 }
 
 Array::Array(const Array &other) : Array(other.size) { *this = other; }

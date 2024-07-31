@@ -2,6 +2,7 @@
 // Array class definition with overloaded operators
 #ifndef ARRAY_H
 #define ARRAY_H
+#include <initializer_list>
 #include <iostream>
 class Array {
     friend std::ostream &operator<<(std::ostream &, const Array &);
@@ -9,6 +10,7 @@ class Array {
 
   public:
     explicit Array(int = 10);
+    Array(const std::initializer_list<int> &);
     Array(const Array &);
     ~Array();
     size_t getSize() const;
