@@ -27,8 +27,9 @@ Array::Array(int arraySize)
                ? arraySize
                : throw invalid_argument("Array size must be greater than 0")),
       ptr(new int[size]) {
-    for (size_t i = 0; i < size; ++i)
-        ptr[i] = 0;
+    // 其實我唔知點解書要咁做，因為就算無都好，啲element 都係set 咗做0
+    // for (size_t i = 0; i < size; ++i)
+    //     ptr[i] = 0;
 }
 
 Array::Array(const Array &other) : Array(other.size) { *this = other; }
