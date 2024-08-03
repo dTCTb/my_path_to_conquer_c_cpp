@@ -286,6 +286,11 @@ saving_account: ch9/saving_account.cpp
 	$(CC) $(CFLAGS) -DCASE1 -o $(BIN)/$@ $< -L$(OBJ) -l11.8BCEc1
 	@$(BIN)/$@
 
+11.9c2: ch11/11.9_main.cpp ch11/11.11_BCE.cpp ch11/11.10_BCE.h ch11/11.5_CommissionEmployee.cpp ch11/11.4_CommissionEmployee.h
+	@$(CC) $(CFLAGS) -o $(OBJ)/lib11.11BCE.dylib -shared -fPIC ch11/11.11_BCE.cpp -L$(OBJ) -l11.6CE
+	$(CC) $(CFLAGS) -DCASE2 -o $(BIN)/$@ $< -L$(OBJ) -l11.11BCE -l11.5CE
+	@$(BIN)/$@
+
 # Other
 
 clean:

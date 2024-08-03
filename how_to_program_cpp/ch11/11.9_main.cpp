@@ -1,11 +1,20 @@
 // Fig. 11.9: 11.9_main.cpp
 // BasePlusCommissionEmployee class test program
+#if defined CASE1
 #include "11.7_BasePlusCommissionEmployee.h"
+#elif defined CASE2
+#include "11.10_BCE.h"
+#endif
 #include <iomanip>
 #include <iostream>
 using namespace std;
 
 int main() {
+#if defined CASE1
+    cout << "\"11.7_BasePlusCommissionEmployee.h being used\"" << endl;
+#elif defined CASE2
+    cout << "\"11.10_BCE.h being used\"" << endl;
+#endif
     BasePlusCommissionEmployee employee("Bob", "Lewis", "333-33-3333", 5000,
                                         .04, 300);
     cout << fixed << setprecision(2);
