@@ -1,8 +1,10 @@
 // Fig. 11.9: 11.9_main.cpp
 // BasePlusCommissionEmployee class test program
-#if defined CASE1
+#if defined NEW
 #include "11.7_BasePlusCommissionEmployee.h"
-#elif defined CASE2
+#elif defined PUBLIC
+#include "11.10_BCE.h"
+#elif defined PROTECTED
 #include "11.10_BCE.h"
 #endif
 #include <iomanip>
@@ -10,10 +12,11 @@
 using namespace std;
 
 int main() {
-#if defined CASE1
+#if defined PUBLIC
     cout << "\"11.7_BasePlusCommissionEmployee.h being used\"" << endl;
-#elif defined CASE2
+#elif defined PROTECTED
     cout << "\"11.10_BCE.h being used\"" << endl;
+    cout << "\"11.12_CE.h being used\"" << endl;
 #endif
     BasePlusCommissionEmployee employee("Bob", "Lewis", "333-33-3333", 5000,
                                         .04, 300);
