@@ -6,6 +6,8 @@
 #include "11.10_BCE.h"
 #elif defined EX11_3_4
 #include "11.10_BCE.h"
+#elif defined EX11_3_5
+#include "11.10_BCE.h"
 #endif
 #include <iomanip>
 #include <iostream>
@@ -19,6 +21,9 @@ int main() {
 #elif defined EX11_3_4 // base class protected data
     cout << "\"11.10_BCE.h being used\"" << endl;
     cout << "\"11.12_CE.h being used\"" << endl;
+#elif defined EX11_3_5
+    cout << "\"11.4_CommissionEmployee.h being used\"" << endl;
+    cout << "\"11.10_BCE.h being used\"" << endl;
 #endif
     BasePlusCommissionEmployee employee("Bob", "Lewis", "333-33-3333", 5000,
                                         .04, 300);

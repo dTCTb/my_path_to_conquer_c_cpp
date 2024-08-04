@@ -6,6 +6,8 @@
 #include "11.4_CommissionEmployee.h"
 #elif defined EX11_3_4 // protected data member
 #include "11.12_CE.h"
+#elif defined EX11_3_5
+#include "11.4_CommissionEmployee.h"
 #endif
 #include <string>
 class BasePlusCommissionEmployee : public CommissionEmployee {

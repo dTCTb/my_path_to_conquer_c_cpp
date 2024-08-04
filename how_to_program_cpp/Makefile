@@ -12,7 +12,7 @@ CH7=7.3 7.4 7.5 7.8 7.9 7.10 7.11 7.12 7.13 7.17 7.18 7.20 7.24 7.25
 CH8=8.4 8.6 8.7 8.10 8.13 8.14 8.17 sml ol_extr_op
 CH9=9.3 9.6 9.9 9.12 9.15 9.16 9.21 9.22 9.23 9.26 9.29 saving_account
 CH10=10.1 10.5 10.8 10.9 10.13
-CH11=11.6 11.9c1 11.9c2 11.9c3
+CH11=11.6 11.9c1 11.9c2 11.9c3 11.9c4
 TARGET= $(CH1) $(CH2) $(CH3) $(CH4) $(CH5) $(CH6) $(CH7) $(CH8) $(CH9) $(CH10) $(CH11)
 
 all: $(TARGET)
@@ -297,6 +297,12 @@ ch11: $(CH11)
 	$(CC) $(CFLAGS) -DEX11_3_4 -o $(OBJ)/lib11.5CE.dylib -shared -fPIC ch11/11.5_CommissionEmployee.cpp
 	$(CC) $(CFLAGS) -DEX11_3_4 -o $(OBJ)/lib11.11BCE.dylib -shared -fPIC ch11/11.11_BCE.cpp -L$(OBJ) -l11.5CE
 	$(CC) $(CFLAGS) -DEX11_3_4 -o $(BIN)/$@ $< -L$(OBJ) -l11.11BCE -l11.5CE
+	@$(BIN)/$@
+
+11.9c4: ch11/11.9_main.cpp ch11/11.14_CE.cpp ch11/11.15_BCE.cpp
+	$(CC) $(CFLAGS) -DEX11_3_5 -o $(OBJ)/libCE.dylib -shared -fPIC ch11/11.14_CE.cpp
+	$(CC) $(CFLAGS) -DEX11_3_5 -o $(OBJ)/libBCE.dylib -shared -fPIC ch11/11.15_BCE.cpp -L$(OBJ) -lCE
+	$(CC) $(CFLAGS) -DEX11_3_5 -o $(BIN)/$@ $< -L$(OBJ) -lCE -l BCE
 	@$(BIN)/$@
 
 # Other
