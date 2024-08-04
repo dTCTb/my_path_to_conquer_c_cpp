@@ -2,9 +2,9 @@
 // BasePlusCommissionEmployee class derived from class CommissionEmployee
 #ifndef BASEPLUS_H
 #define BASEPLUS_H
-#if defined NONE
+#if defined EX11_3_3 // private data member
 #include "11.4_CommissionEmployee.h"
-#elif defined PROTECTED
+#elif defined EX11_3_4 // protected data member
 #include "11.12_CE.h"
 #endif
 #include <string>

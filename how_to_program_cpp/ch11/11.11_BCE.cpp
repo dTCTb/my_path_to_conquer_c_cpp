@@ -22,23 +22,20 @@ void BCE::setBaseSalary(double salary) {
 
 double BCE::getBaseSalary() const { return baseSalary; }
 
-/* derived class cannot access the base class's private data
-double BCE::earnings() const {
-    return baseSalary + (commissionRate * grossSales); }
- */
+#if defined EX11_3_3
+// derived class cannot access the base class's private data
 double BCE::earnings() const {
     return baseSalary + (getCommissionRate() * getGrossSales());
 }
-
-/* derived class cannot access the base class's private data
-void BCE::print() const {
-    cout << "base-salaried commission employee: " << firstName << ' '
-         << lastName << "\nsocial security number: " << socialSecurityNumber
-         << "\ngross sales: " << grossSales
-         << "\ncommission rate: " << commissionRate
-         << "\nbase salary: " << baseSalary;
+#elif defined EX11_3_4
+// after changed base class's private data to protected data
+double BCE::earnings() const {
+    return baseSalary + (commissionRate * grossSales);
 }
- */
+#endif
+
+#if defined EX11_3_3
+// derived class cannot access the base class's private data
 void BCE::print() const {
     cout << "base-salaried commission employee: " << getFirstName() << ' '
          << getLastName()
@@ -47,3 +44,13 @@ void BCE::print() const {
          << "\ncommission rate: " << getCommissionRate()
          << "\nbase salary: " << baseSalary;
 }
+#elif defined EX11_3_4
+// after changed base class's private data to protected data
+void BCE::print() const {
+    cout << "base-salaried commission employee: " << firstName << ' '
+         << lastName << "\nsocial security number: " << socialSecurityNumber
+         << "\ngross sales: " << grossSales
+         << "\ncommission rate: " << commissionRate
+         << "\nbase salary: " << baseSalary;
+}
+#endif

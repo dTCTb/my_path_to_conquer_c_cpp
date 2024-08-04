@@ -1,8 +1,10 @@
 // Fig. 11.5: 11.5_CommissionEmployee.cpp
 // Class COmmissionEmployee member-function definitions
-#if defined NONE
+#if defined EX11_3_1
 #include "11.4_CommissionEmployee.h"
-#elif defined PROTECTED
+#elif defined EX11_3_3
+#include "11.4_CommissionEmployee.h"
+#elif defined EX11_3_4
 #include "11.12_CE.h"
 #endif
 #include <iostream>

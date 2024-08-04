@@ -279,24 +279,26 @@ saving_account: ch9/saving_account.cpp
 ch11: $(CH11)
 
 11.6: ch11/11.6_main.cpp ch11/11.5_CommissionEmployee.cpp ch11/11.4_CommissionEmployee.h
-	@$(CC) $(CFLAGS) -DNONE -o $(OBJ)/lib11.5CE.dylib -shared -fPIC ch11/11.5_CommissionEmployee.cpp
-	$(CC) $(CFLAGS) -DNONE -o $(BIN)/$@ $< -L$(OBJ) -l11.5CE
+	$(CC) $(CFLAGS) -DEX11_3_1 -o $(OBJ)/lib11.5CE.dylib -shared -fPIC ch11/11.5_CommissionEmployee.cpp
+	$(CC) $(CFLAGS) -DEX11_3_1 -o $(BIN)/$@ $< -L$(OBJ) -l11.5CE
 	@$(BIN)/$@
 
 11.9c1: ch11/11.9_main.cpp ch11/11.8_BasePlusCommissionEmployee.cpp ch11/11.7_BasePlusCommissionEmployee.h
-	@$(CC) $(CFLAGS) -o $(OBJ)/lib11.8BCEc1.dylib -shared -fPIC ch11/11.8_BasePlusCommissionEmployee.cpp
-	$(CC) $(CFLAGS) -DNEW -o $(BIN)/$@ $< -L$(OBJ) -l11.8BCEc1
+	$(CC) $(CFLAGS) -o $(OBJ)/lib11.8BCEc1.dylib -shared -fPIC ch11/11.8_BasePlusCommissionEmployee.cpp
+	$(CC) $(CFLAGS) -DEX11_3_2 -o $(BIN)/$@ $< -L$(OBJ) -l11.8BCEc1
 	@$(BIN)/$@
 
 11.9c2: ch11/11.9_main.cpp ch11/11.11_BCE.cpp ch11/11.10_BCE.h ch11/11.5_CommissionEmployee.cpp ch11/11.4_CommissionEmployee.h
-	@$(CC) $(CFLAGS) -DNONE -o $(OBJ)/lib11.11BCE.dylib -shared -fPIC ch11/11.11_BCE.cpp -L$(OBJ) -l11.5CE
-	$(CC) $(CFLAGS) -DNONE -DPUBLIC -o $(BIN)/$@ $< -L$(OBJ) -l11.11BCE -l11.5CE
+	$(CC) $(CFLAGS) -DEX11_3_3 -o $(OBJ)/lib11.11BCE.dylib -shared -fPIC ch11/11.11_BCE.cpp -L$(OBJ) -l11.5CE
+	$(CC) $(CFLAGS) -DEX11_3_3 -o $(BIN)/$@ $< -L$(OBJ) -l11.11BCE -l11.5CE
 	@$(BIN)/$@
 
 11.9c3: ch11/11.9_main.cpp ch11/11.11_BCE.cpp ch11/11.5_CommissionEmployee.cpp
-	@$(CC) $(CFLAGS) -DPROTECTED -o $(OBJ)/lib11.5CE.dylib -shared -fPIC ch11/11.5_CommissionEmployee.cpp
-	$(CC) $(CFLAGS) -DPROTECTED -o $(BIN)/$@ $< -L$(OBJ) -l11.11BCE -l11.5CE
+	$(CC) $(CFLAGS) -DEX11_3_4 -o $(OBJ)/lib11.5CE.dylib -shared -fPIC ch11/11.5_CommissionEmployee.cpp
+	$(CC) $(CFLAGS) -DEX11_3_4 -o $(OBJ)/lib11.11BCE.dylib -shared -fPIC ch11/11.11_BCE.cpp -L$(OBJ) -l11.5CE
+	$(CC) $(CFLAGS) -DEX11_3_4 -o $(BIN)/$@ $< -L$(OBJ) -l11.11BCE -l11.5CE
 	@$(BIN)/$@
+
 # Other
 
 clean:

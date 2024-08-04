@@ -1,10 +1,10 @@
 // Fig. 11.9: 11.9_main.cpp
 // BasePlusCommissionEmployee class test program
-#if defined NEW
+#if defined EX11_3_2
 #include "11.7_BasePlusCommissionEmployee.h"
-#elif defined PUBLIC
+#elif defined EX11_3_3
 #include "11.10_BCE.h"
-#elif defined PROTECTED
+#elif defined EX11_3_4
 #include "11.10_BCE.h"
 #endif
 #include <iomanip>
@@ -12,9 +12,11 @@
 using namespace std;
 
 int main() {
-#if defined PUBLIC
+#if defined EX11_3_2
     cout << "\"11.7_BasePlusCommissionEmployee.h being used\"" << endl;
-#elif defined PROTECTED
+#elif defined EX11_3_3 // base class private data
+    cout << "\"11.10_BCE.h being used\"" << endl;
+#elif defined EX11_3_4 // base class protected data
     cout << "\"11.10_BCE.h being used\"" << endl;
     cout << "\"11.12_CE.h being used\"" << endl;
 #endif
