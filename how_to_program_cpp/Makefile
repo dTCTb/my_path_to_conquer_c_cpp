@@ -317,6 +317,11 @@ ch11: $(CH11)
 12.3: ch12/12.3_main.cpp
 	$(CC) $(CFLAGS) -DPRINT -o $(BIN)/$@ $< -L$(OBJ) -lCE -lBCE
 
+12.4: ch12/12.1_main.cpp
+	$(CC) $(CFLAGS) -DVIRTUAL -o $(OBJ)/libCE.dylib -shared -fPIC ch12/CE.cpp
+	$(CC) $(CFLAGS) -DVIRTUAL -o $(OBJ)/libBCE.dylib -shared -fPIC ch12/BCE.cpp -L$(OBJ) -lCE
+	$(CC) $(CFLAGS) -DVIRTUAL -o $(BIN)/$@ $< -L$(OBJ) -lCE -lBCE
+
 # Other
 
 clean:

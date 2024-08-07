@@ -22,8 +22,13 @@ class CommissionEmployee {
     void setCommissionRate(double);   // set commission rate (percentage)
     double getCommissionRate() const; // return commission rate
 
+#if !defined VIRTUAL
     double earnings() const; // calculate earnings
     void print() const;      // print CommissionEmployee object
+#elif defined VIRTUAL
+    virtual double earnings() const;
+    virtual void print() const;
+#endif
 
   private:
     std::string firstName;
