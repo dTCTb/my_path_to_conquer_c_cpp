@@ -13,7 +13,7 @@ CH8=8.4 8.6 8.7 8.10 8.13 8.14 8.17 sml ol_extr_op
 CH9=9.3 9.6 9.9 9.12 9.15 9.16 9.21 9.22 9.23 9.26 9.29 saving_account
 CH10=10.1 10.5 10.8 10.9 10.13
 CH11=11.6 11.9c1 11.9c2 11.9c3 11.9c4
-CH12=12.1 12.2 12.3 12.4 12.17
+CH12=12.1 12.2 12.3 12.4 12.17 12.19
 TARGET= $(CH1) $(CH2) $(CH3) $(CH4) $(CH5) $(CH6) $(CH7) $(CH8) $(CH9) $(CH10) $(CH11) $(CH12)
 
 all: $(TARGET)
@@ -322,11 +322,16 @@ ch11: $(CH11)
 	$(CC) $(CFLAGS) -DVIRTUAL -o $(OBJ)/libBCE.dylib -shared -fPIC ch12/BCE.cpp -L$(OBJ) -lCE
 	$(CC) $(CFLAGS) -DVIRTUAL -o $(BIN)/$@ $< -L$(OBJ) -lCE -lBCE
 
-12.17: ch12/12.17_main.cpp ch12/base_* ch12/derived_*
+12.17_library: ch12/base_* ch12/derived_*
 	$(CC) $(CFLAGS) -o $(OBJ)/libE.dylib -shared -fPIC ch12/base_employee.cpp
 	$(CC) $(CFLAGS) -o $(OBJ)/libSE.dylib -shared -fPIC ch12/derived_salaried_employee.cpp -L$(OBJ) -lE
 	$(CC) $(CFLAGS) -o $(OBJ)/libCE.dylib -shared -fPIC ch12/derived_commission_employee.cpp -L$(OBJ) -lE -lSE
 	$(CC) $(CFLAGS) -o $(OBJ)/libBCE.dylib -shared -fPIC ch12/derived_base_plus_commission_employee.cpp -L$(OBJ) -lE -lSE -lCE
+
+12.17: ch12/12.17_main.cpp  12.17_library
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $< -L$(OBJ) -lE -lSE -lCE -lBCE
+
+12.19: ch12/12.19.cpp 12.17_library
 	$(CC) $(CFLAGS) -o $(BIN)/$@ $< -L$(OBJ) -lE -lSE -lCE -lBCE
 
 
