@@ -14,7 +14,8 @@ CH9=9.3 9.6 9.9 9.12 9.15 9.16 9.21 9.22 9.23 9.26 9.29 saving_account
 CH10=10.1 10.5 10.8 10.9 10.13
 CH11=11.6 11.9c1 11.9c2 11.9c3 11.9c4
 CH12=12.1 12.2 12.3 12.4 12.17 12.19
-TARGET= $(CH1) $(CH2) $(CH3) $(CH4) $(CH5) $(CH6) $(CH7) $(CH8) $(CH9) $(CH10) $(CH11) $(CH12)
+CH13=13.3
+TARGET= $(CH1) $(CH2) $(CH3) $(CH4) $(CH5) $(CH6) $(CH7) $(CH8) $(CH9) $(CH10) $(CH11) $(CH12) $(CH13)
 
 all: $(TARGET)
 
@@ -334,6 +335,8 @@ ch11: $(CH11)
 12.19: ch12/12.19.cpp 12.17_library
 	$(CC) $(CFLAGS) -o $(BIN)/$@ $< -L$(OBJ) -lE -lSE -lCE -lBCE
 
+13.3: ch13/13.3.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
 
 # Other
 
