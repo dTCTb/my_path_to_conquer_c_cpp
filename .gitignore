@@ -9,3 +9,6 @@ foo*
 .idea
 .cache/
 compile_commands.json
+
+# how_to_program_cpp
+how_to_program_cpp/**/*clients.txt
