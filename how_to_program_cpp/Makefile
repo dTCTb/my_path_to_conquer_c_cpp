@@ -15,7 +15,7 @@ CH10=10.1 10.5 10.8 10.9 10.13
 CH11=11.6 11.9c1 11.9c2 11.9c3 11.9c4
 CH12=12.1 12.2 12.3 12.4 12.17 12.19
 CH13=13.3 13.4 13.5 13.6 13.7 13.8 13.9 13.10 13.11 13.13 13.14 13.15 13.16 13.17 13.18 13.19 13.20 13.21 13.22 ex13.15 ex13.18
-CH14=14.3 14.6 14.7
+CH14=14.3 14.6 14.7 14.11 14.12 14.13
 TARGET= $(CH1) $(CH2) $(CH3) $(CH4) $(CH5) $(CH6) $(CH7) $(CH8) $(CH9) $(CH10) $(CH11) $(CH12) $(CH13) $(CH14)
 
 all: $(TARGET)
@@ -411,6 +411,18 @@ CH14: $(CH14)
 
 14.7: ch14/14.7.cpp
 	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+ClientData: ch14/ClientData.cpp ch14/ClientData.h
+	$(CC) $(CFLAGS) -o $(OBJ)/libClientData.dylib -shared -fPIC ch14/ClientData.cpp
+
+14.11: ch14/14.11_main.cpp ClientData
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $< -L$(OBJ) -lClientData
+
+14.12: ch14/14.12_main.cpp ClientData
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $< -L$(OBJ) -lClientData
+
+14.13: ch14/14.13_main.cpp ClientData
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $< -L$(OBJ) -lClientData
 
 # Other
 
