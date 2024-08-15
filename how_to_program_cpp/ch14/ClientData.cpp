@@ -31,7 +31,7 @@ std::string ClientData::getFirstName() const { return firstName; }
 void ClientData::setFirstName(const std::string &firstNameValue) {
     unsigned length = firstNameValue.length();
     // length = length < 10 ? length : 9;
-    length = length < 9 ? 9 : length;
+    length = length > 9 ? 9 : length;
     firstNameValue.copy(firstName, length);
     firstName[length] = '\0';
 }
