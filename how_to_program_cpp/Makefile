@@ -14,7 +14,10 @@ CH9=9.3 9.6 9.9 9.12 9.15 9.16 9.21 9.22 9.23 9.26 9.29 saving_account
 CH10=10.1 10.5 10.8 10.9 10.13
 CH11=11.6 11.9c1 11.9c2 11.9c3 11.9c4
 CH12=12.1 12.2 12.3 12.4 12.17 12.19
-TARGET= $(CH1) $(CH2) $(CH3) $(CH4) $(CH5) $(CH6) $(CH7) $(CH8) $(CH9) $(CH10) $(CH11) $(CH12)
+CH13=13.3 13.4 13.5 13.6 13.7 13.8 13.9 13.10 13.11 13.13 13.14 13.15 13.16 13.17 13.18 13.19 13.20 13.21 13.22 ex13.15 ex13.18
+CH14=14.3 14.6 14.7 14.11 14.12 14.13 14.14 ex14.12
+CH15=15.4
+TARGET= $(CH1) $(CH2) $(CH3) $(CH4) $(CH5) $(CH6) $(CH7) $(CH8) $(CH9) $(CH10) $(CH11) $(CH12) $(CH13) $(CH14) $(CH15)
 
 all: $(TARGET)
 
@@ -334,6 +337,104 @@ ch11: $(CH11)
 12.19: ch12/12.19.cpp 12.17_library
 	$(CC) $(CFLAGS) -o $(BIN)/$@ $< -L$(OBJ) -lE -lSE -lCE -lBCE
 
+CH13: $(CH13)
+
+13.3: ch13/13.3.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+13.4: ch13/13.4.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+13.5: ch13/13.5.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+13.6: ch13/13.6.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+13.7: ch13/13.7.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+13.8: ch13/13.8.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+13.9: ch13/13.9.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+13.10: ch13/13.10.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+13.11: ch13/13.11.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+13.13: ch13/13.13.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+13.14: ch13/13.14.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+13.15: ch13/13.15.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+13.16: ch13/13.16.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+13.17: ch13/13.17.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+13.18: ch13/13.18.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+13.19: ch13/13.19.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+13.20: ch13/13.20.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+13.21: ch13/13.21.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+13.22: ch13/13.22.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+ex13.15: ch13/ex13.15.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+ex13.18: ch13/ex13.18.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+CH14: $(CH14)
+
+14.3: ch14/14.3.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+14.6: ch14/14.6.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+14.7: ch14/14.7.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+ClientData: ch14/ClientData.cpp ch14/ClientData.h
+	$(CC) $(CFLAGS) -o $(OBJ)/libClientData.dylib -shared -fPIC ch14/ClientData.cpp
+
+14.11: ch14/14.11_main.cpp ClientData
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $< -L$(OBJ) -lClientData
+
+14.12: ch14/14.12_main.cpp ClientData
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $< -L$(OBJ) -lClientData
+
+14.13: ch14/14.13_main.cpp ClientData
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $< -L$(OBJ) -lClientData
+
+14.14: ch14/14.14_main.cpp ClientData
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $< -L$(OBJ) -lClientData
+
+ex14.12: ch14/ex14.12.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+CH15: $(CH15)
+
+15.4: ch15/15.4.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
 
 # Other
 
