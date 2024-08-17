@@ -29,7 +29,9 @@ int main() {
     printVector(integers);
 
     std::cout << "\nReverse contents of vector integers: ";
-    for (auto reverseIterator = integers.crbegin();
+    // replace auto to explicit type
+    for (std::vector<int>::const_reverse_iterator reverseIterator =
+             integers.crbegin();
          reverseIterator != integers.crend(); ++reverseIterator)
         std::cout << *reverseIterator << ' ';
 
@@ -37,9 +39,14 @@ int main() {
 }
 
 template <typename T> void printVector(const std::vector<T> &integers2) {
+    // this auto have to be auto, because of this is a function with template
     for (auto constIterator = integers2.cbegin();
          constIterator != integers2.cend(); ++constIterator)
         std::cout << *constIterator << ' ';
+    std::cout << "| ";
+    // equivalent to
+    for (T const &ref : integers2)
+        std::cout << ref << ' ';
 }
 
 /* execution result
