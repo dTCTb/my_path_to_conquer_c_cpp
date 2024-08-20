@@ -38,7 +38,9 @@ int main() {
     std::cout << "\n\nLower bound of 22: " << *(intMultiset.lower_bound(22));
     std::cout << "\nUpper bound of 22: " << *(intMultiset.upper_bound(22));
 
-    auto p = intMultiset.equal_range(22);
+    // auto p = intMultiset.equal_range(22);
+    std::pair<std::multiset<int>::iterator, std::multiset<int>::iterator> p =
+        intMultiset.equal_range(22);
 
     std::cout << "\n\nequal_range of 22:" << "\n   Lower bound: " << *(p.first)
               << "\n   Upper bound: " << *(p.second);
