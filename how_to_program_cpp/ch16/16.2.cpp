@@ -26,15 +26,21 @@ int main() {
     result = std::equal(a1.cbegin(), a1.cend(), a3.cbegin());
     cout << "a1 " << (result ? "is" : "is not") << " equal to a3.\n";
 
+#if !defined CPP17
     // auto location = std::mismatch(a1.cbegin(), a1.cend(), a3.cbegin());
-    // cout << "\nThere is a mismatch between a1 and a3 at location "
-    //      << (location.first - a1.begin()) << "\nwhere a1 contains "
-    //      << *location.first << " and a3 contains " << *location.second
-    //      << "\n\n";
+    std::pair<array<int, SIZE>::const_iterator,
+              array<int, SIZE>::const_iterator>
+        location = std::mismatch(a1.cbegin(), a1.cend(), a3.cbegin());
+    cout << "\nThere is a mismatch between a1 and a3 at location "
+         << (location.first - a1.begin()) << "\nwhere a1 contains "
+         << *location.first << " and a3 contains " << *location.second
+         << "\n\n";
+#else
     auto [first, second] = std::mismatch(a1.cbegin(), a1.cend(), a3.cbegin());
     cout << "\nThere is a mismatch between a1 and a3 at location "
          << (first - a1.begin()) << "\nwhere a1 contains " << *first
          << " and a3 contains " << *second << "\n\n";
+#endif
 
     char c1[SIZE] = "HELLO";
     char c2[SIZE] = "BYE BYE";

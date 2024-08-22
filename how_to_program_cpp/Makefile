@@ -476,7 +476,7 @@ CH16: $(CH16)
 	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
 
 16.2: ch16/16.2.cpp
-	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+	$(CC) $(CFLAGS) -DCPP17 -o $(BIN)/$@ $<
 
 16.3: ch16/16.3.cpp
 	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
