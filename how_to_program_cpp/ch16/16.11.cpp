@@ -22,6 +22,8 @@ int main() {
 
     // std::lower_bound
     const int *lower = std::lower_bound(a.cbegin(), a.cend(), 6);
+    // change to below that using less_equal compare function will act like upper_bound
+    // const int *lower = std::lower_bound(a.cbegin(), a.cend(), 6, std::less_equal<int>());
     line("\n\nLower bound of 6 is element ", (lower - a.cbegin()), " of array a");
 
     // std::upper_bound
