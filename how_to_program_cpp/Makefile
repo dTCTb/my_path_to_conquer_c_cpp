@@ -18,7 +18,7 @@ CH13=13.3 13.4 13.5 13.6 13.7 13.8 13.9 13.10 13.11 13.13 13.14 13.15 13.16 13.1
 CH14=14.3 14.6 14.7 14.11 14.12 14.13 14.14 ex14.12
 CH15=15.4 15.10 15.11 15.13 15.14 15.15 15.16 15.17 15.18 15.19 15.20 15.21
 CH16=16.1 16.2 16.3 16.4 16.5 16.6 16.7 16.8 16.9 16.10 16.11 16.12 16.13 16.15 16.16 ex16.3
-CH17=17.2
+CH17=17.2 17.3 17.4 17.5 17.9
 TARGET= $(CH1) $(CH2) $(CH3) $(CH4) $(CH5) $(CH6) $(CH7) $(CH8) $(CH9) $(CH10) $(CH11) $(CH12) $(CH13) $(CH14) $(CH15) $(CH16) $(CH17)
 
 all: $(TARGET)
@@ -526,7 +526,25 @@ CH17: $(CH17)
 17.2: ch17/17.2.cpp ch17/DivideByZeroException.h
 	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
 
+17.3: ch17/17.3.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+17.4: ch17/17.4.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+17.5: ch17/17.5.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+17.6: ch17/17.6.cpp
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+
+Integer: ch17/Integer.cpp ch17/Integer.h
+	$(CC) -Wall -Wextra -o $(OBJ)/lib$@.dylib -shared -fPIC $< -I./ch17
+
+17.9: ch17/17.9.cpp Integer
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $< -L$(OBJ) -lInteger
+
 # Other
 
 clean:
-	rm -fr $(BIN)/*
+	rm -fr $(BIN)/* 17.9
