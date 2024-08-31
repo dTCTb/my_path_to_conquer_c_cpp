@@ -5,7 +5,7 @@
 
 double quotient(int numerator, int denominator) {
     if (denominator == 0)
-        throw DivideByZeroException();
+        throw new DivideByZeroException;
     return static_cast<double>(numerator) / denominator;
 }
 
@@ -19,8 +19,14 @@ int main() {
         try {
             double result = quotient(number1, number2);
             std::cout << "The quotient is: " << result << '\n';
-        } catch (DivideByZeroException &ex) {
-            std::cout << "Exception occured: " << ex.what() << '\n';
+        } catch (std::exception *ex) {
+            DivideByZeroException *e =
+                dynamic_cast<DivideByZeroException *>(ex);
+            if (e)
+                std::cout << "Exception occured: " << e->what() << '\n';
+            delete ex;
+            // } catch (DivideByZeroException &ex) {
+            // std::cout << "Exception occured: " << ex.what() << '\n';
         }
         std::cout << "\nEnter two integers (end-of-file to end): ";
     }
