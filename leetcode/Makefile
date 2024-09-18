@@ -1,4 +1,4 @@
-LEETCODE=1 539 884
+LEETCODE=1 539 884 179
 BIN=./bin
 
 all: $(LEETCODE)
@@ -11,3 +11,7 @@ all: $(LEETCODE)
 
 884: 884_uncommon_words_from_two_sentences.cpp
 	clang++ -o $(BIN)/$@ $<
+
+179: 179_largest_number.cpp
+	clang++ -o $(BIN)/$@ $<
+	@$(BIN)/$@
