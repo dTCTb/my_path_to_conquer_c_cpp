@@ -18,111 +18,55 @@ using namespace std;
 class Solution {
   public:
     string largestNumber(vector<int> &&nums) {
-        /* map<char, map<size_t, vector<pair<int, size_t>>, greater<size_t>>>
-            table{};
-        // 'digit' : { digit : [(int, index), ...]}
-        for (size_t i{}; i < nums.size(); ++i) {
-            string tmp{to_string(nums[i])};
-            (table[tmp.front()])[tmp.size()].push_back({nums[i], i});
-        }
-
-        for_each(table.cbegin(), table.cend(), [](auto e) {
-            auto &n{e.second};
-            for (auto &m : n)
-                sort((m.second).begin(), (m.second).end(),
-                     [](auto l, auto r) -> bool { return l.first > l.second; });
-        });
-
-        for_each(table.cbegin(), table.cend(), [](auto e) {
-            cout << '\'' << e.first << "' | ";
-            auto &n{e.second};
-            for (auto &m : n) {
-                cout << m.first << ": ";
-                for (auto &p : m.second)
-                    cout << p.first << '[' << p.second << ']' << ' ';
-            }
-            cout << '\n';
-        }); */
-        map<size_t, vector<pair<int, size_t>>, greater<size_t>> indices{};
+        map<size_t, vector<string>, greater<size_t>> indices{};
         string result{};
 
-        // digit : [(int, index), ...]
+        // digit : [str, str, ...]
         for (size_t i{}; i < nums.size(); ++i) {
-            // indices[(tmp = to_string(nums[i])).size()].push_back({tmp, i});
-            indices[to_string(nums[i]).front() - '0'].push_back({nums[i], i});
+            string tmp{to_string(nums[i])};
+            indices[tmp.front() - '0'].push_back(tmp);
         }
 
         for_each(indices.begin(), indices.end(), [&result](auto &e) {
-            size_t d{e.first};
             auto &m{e.second};
-            sort(m.begin(), m.end(), [&d](auto l, auto r) -> bool {
-                // auto L{l.first}, R{r.first};
-                auto lStr{to_string(l.first)}, rStr{to_string(r.first)};
-                long ll = atol((lStr + rStr).data());
-                long rr = atol((rStr + lStr).data());
-                if (ll > rr)
+            sort(m.begin(), m.end(), [](string &l, string &r) -> bool {
+                long L{atol((l + r).data())};
+                long R{atol((r + l).data())};
+                if (L > R)
                     return true;
                 return false;
-                /* if (lStr.size() == rStr.size()) {
-                    for (size_t i{}; i < min({lStr.size(), rStr.size()}); ++i) {
-                        if (lStr[i] != rStr[i])
-                            return l.first > r.first;
-                    }
-                } else {
-                    size_t lSum{}, rSum{};
-                    for (char v : lStr)
-                        lSum += v - '0';
-                    for (char v : rStr)
-                        rSum += v - '0';
-                    if (lSum != rSum)
-                        return lSum > rSum;
-                }
-                return l.first < r.first; */
-
-                // return l.first < r.first;
-                // if (lSum == rSum && (L == d || R == d))
-                //     return L < R;
-                // else if (lSum == rSum)
-                //     return L < R;
-                // else
-                //     return lSum > rSum;
-                // return ((L == d || L == d * 10) && (R == d || R == d *
-                // 10))
-                //            ? false
-                //            : lSum > rSum;
-                // if (to_string(L).size() > to_string(R).size()) {
-                //     return L < R;
-                // } else {
-                //     return L > R;
-                // }
-                /* ((l.first == d || l.first == d * 10) &&
-                        (r.first == d || r.first == d * 10))
-                           ? false
-                           : l.first > r.first; */
             });
             for (auto &p : m)
-                result += to_string(p.first);
+                result += p;
         });
-
-        // for (map<size_t, vector<pair<int, size_t>>>::value_type &kv :
-        // indices)
-        //     sort((kv.second).begin(), (kv.second).end(),
-        //          [&indices](auto l, auto r) -> bool {
-        //          return (l.first > 0 || r.frist > 9) ? l.first > r.first
-        //          : ;
-        //          });
 
         print_table(indices);
         return result[0] == '0' ? "0" : result;
     }
 
+    // 其他勁人，寫得勁clean，我仲用咗好耐先睇到個核心！
+    string learnTHIS(vector<int> &&nums) {
+        auto compare = [](string &l, string &r) { return l + r > r + l; };
+
+        vector<string> strs{};
+        for (int &num : nums)
+            strs.push_back(to_string(num));
+
+        sort(strs.begin(), strs.end(), compare);
+
+        string result{};
+        for (string &str : strs)
+            result += str;
+
+        return result[0] == '0' ? "0" : result;
+    }
+
   private:
-    void print_table(
-        map<size_t, vector<pair<int, size_t>>, greater<size_t>> &table) {
+    void print_table(map<size_t, vector<string>, greater<size_t>> &table) {
         for_each(table.cbegin(), table.cend(), [&table](auto e) {
             cout << e.first << ": ";
             for (auto p : e.second)
-                cout << p.first << '[' << p.second << ']' << ' ';
+                cout << p << ' ';
             cout << '\n';
         });
     }
@@ -130,19 +74,26 @@ class Solution {
 
 int main() {
     Solution s;
+    cout << s.learnTHIS(vector<int>{3, 30, 34, 5, 9}) << '\n';
     cout << s.largestNumber(vector<int>{3, 30, 34, 5, 9}) << '\n';
     cout.put('\n');
+    cout << s.learnTHIS(vector<int>{10, 2}) << '\n';
     cout << s.largestNumber(vector<int>{10, 2}) << '\n';
     cout.put('\n');
+    cout << s.learnTHIS(vector<int>{111, 99, 110, 101, 121, 1, 10, 19}) << '\n';
     cout << s.largestNumber(vector<int>{111, 99, 110, 101, 121, 1, 10, 19})
          << '\n';
     cout.put('\n');
+    cout << s.learnTHIS(vector<int>{100, 1, 10, 1, 1000}) << '\n';
     cout << s.largestNumber(vector<int>{100, 1, 10, 1, 1000}) << '\n';
     cout.put('\n');
+    cout << s.learnTHIS(vector<int>{111311, 1113}) << '\n';     // 1113111311
     cout << s.largestNumber(vector<int>{111311, 1113}) << '\n'; // 1113111311
     cout.put('\n');
+    cout << s.learnTHIS(vector<int>{8308, 8308, 830}) << '\n'; // 83088308830
     cout << s.largestNumber(vector<int>{8308, 8308, 830})
          << '\n'; // 83088308830
     cout.put('\n');
+    cout << s.learnTHIS(vector<int>{0, 0}) << '\n';
     cout << s.largestNumber(vector<int>{0, 0}) << '\n';
 }
