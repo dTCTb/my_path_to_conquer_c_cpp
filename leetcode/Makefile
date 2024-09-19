@@ -15,3 +15,7 @@ all: $(LEETCODE)
 179: 179_largest_number.cpp
 	clang++ -o $(BIN)/$@ $<
 	@$(BIN)/$@
+
+241: 241_different_ways_to_add_parentheses.cpp
+	clang++ -o $(BIN)/$@ $<
+	@$(BIN)/$@
