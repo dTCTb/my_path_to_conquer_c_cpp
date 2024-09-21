@@ -19,3 +19,11 @@ all: $(LEETCODE)
 241: 241_different_ways_to_add_parentheses.cpp
 	clang++ -o $(BIN)/$@ $<
 	@$(BIN)/$@
+
+214: 214_shortest_palindrome.cpp
+	clang++ -o $(BIN)/$@ $< -g
+	@$(BIN)/$@
+
+386: 386_lexicographical_numbers.cpp
+	clang++ -o $(BIN)/$@ $< -g
+	@$(BIN)/$@
