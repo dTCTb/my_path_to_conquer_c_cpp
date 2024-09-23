@@ -27,3 +27,7 @@ all: $(LEETCODE)
 386: 386_lexicographical_numbers.cpp
 	clang++ -o $(BIN)/$@ $< -g
 	@$(BIN)/$@
+
+2707: 2707_extra_characters_in_a_string.cpp
+	clang++ -o $(BIN)/$@ $< -g
+	@$(BIN)/$@
