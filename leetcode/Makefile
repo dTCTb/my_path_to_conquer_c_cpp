@@ -1,4 +1,4 @@
-LEETCODE=1 539 884 179
+LEETCODE=1 539 884 179 241 214 386 2707 3043
 BIN=./bin
 
 all: $(LEETCODE)
@@ -22,12 +22,16 @@ all: $(LEETCODE)
 
 214: 214_shortest_palindrome.cpp
 	clang++ -o $(BIN)/$@ $< -g
-	@$(BIN)/$@
+	# @$(BIN)/$@
 
 386: 386_lexicographical_numbers.cpp
 	clang++ -o $(BIN)/$@ $< -g
 	@$(BIN)/$@
 
 2707: 2707_extra_characters_in_a_string.cpp
+	clang++ -o $(BIN)/$@ $< -g
+	@$(BIN)/$@
+
+3043: 3043_find_the_length_of_the_longest_common_prefix.cpp
 	clang++ -o $(BIN)/$@ $< -g
 	@$(BIN)/$@
