@@ -1,4 +1,4 @@
-LEETCODE=1 539 884 179 241 214 386 2707 3043 2416
+LEETCODE=1 539 884 179 241 214 386 2707 3043 2416 729
 BIN=./bin
 
 all: $(LEETCODE)
@@ -37,5 +37,9 @@ all: $(LEETCODE)
 	@$(BIN)/$@
 
 2416: 2416_sum_of_prefix_scores_of_strings.cpp
+	clang++ -o $(BIN)/$@ $< -g
+	@$(BIN)/$@
+
+729: 729_my_calendar_I.cpp
 	clang++ -o $(BIN)/$@ $< -g
 	@$(BIN)/$@
