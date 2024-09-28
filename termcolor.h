@@ -298,13 +298,13 @@
     #define  PUR    N_PUR
     #define  AQU    N_AQU
     #define  ORA    N_ORA
-    #define BRBG    BG_N_RED
+    #define BRED    BG_N_RED
     #define BGRE    BG_N_GRE
-    #define BYBG    BG_N_YEL
-    #define BBBG    BG_N_BLU
-    #define BPBG    BG_N_PUR
-    #define BABG    BG_N_AQU
-    #define BOBG    BG_N_ORA
+    #define BYEL    BG_N_YEL
+    #define BBLU    BG_N_BLU
+    #define BPUR    BG_N_PUR
+    #define BAQU    BG_N_AQU
+    #define BORA    BG_N_ORA
     #define  REDC   N_REDC
     #define  YELC   N_YELC
     #define  GREC   N_GREC
@@ -327,13 +327,13 @@
     #define  PUR    F_PUR
     #define  AQU    F_AQU
     #define  ORA    F_ORA
-    #define BRBG    BG_F_RED
+    #define BRED    BG_F_RED
     #define BGRE    BG_F_GRE
-    #define BYBG    BG_F_YEL
-    #define BBBG    BG_F_BLU
-    #define BPBG    BG_F_PUR
-    #define BABG    BG_F_AQU
-    #define BOBG    BG_F_ORA
+    #define BYEL    BG_F_YEL
+    #define BBLU    BG_F_BLU
+    #define BPUR    BG_F_PUR
+    #define BAQU    BG_F_AQU
+    #define BORA    BG_F_ORA
     #define  REDC   F_REDC
     #define  YELC   F_YELC
     #define  GREC   F_GREC
@@ -357,13 +357,13 @@
     #define  PUR    B_PUR
     #define  AQU    B_AQU
     #define  ORA    B_ORA
-    #define BRBG    BG_B_RED
+    #define BRED    BG_B_RED
     #define BGRE    BG_B_GRE
-    #define BYBG    BG_B_YEL
-    #define BBBG    BG_B_BLU
-    #define BPBG    BG_B_PUR
-    #define BABG    BG_B_AQU
-    #define BOBG    BG_B_ORA
+    #define BYEL    BG_B_YEL
+    #define BBLU    BG_B_BLU
+    #define BPUR    BG_B_PUR
+    #define BAQU    BG_B_AQU
+    #define BORA    BG_B_ORA
     #define  REDC   B_REDC
     #define  YELC   B_YELC
     #define  GREC   B_GREC

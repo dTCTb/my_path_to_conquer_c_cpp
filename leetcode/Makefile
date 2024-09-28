@@ -1,4 +1,4 @@
-LEETCODE=1 539 884 179 241 214 386 2707 3043
+LEETCODE=1 539 884 179 241 214 386 2707 3043 2416 729 731 641
 BIN=./bin
 
 all: $(LEETCODE)
@@ -33,5 +33,21 @@ all: $(LEETCODE)
 	@$(BIN)/$@
 
 3043: 3043_find_the_length_of_the_longest_common_prefix.cpp
+	clang++ -o $(BIN)/$@ $< -g
+	@$(BIN)/$@
+
+2416: 2416_sum_of_prefix_scores_of_strings.cpp
+	clang++ -o $(BIN)/$@ $< -g
+	@$(BIN)/$@
+
+729: 729_my_calendar_I.cpp
+	clang++ -o $(BIN)/$@ $< -g
+	@$(BIN)/$@
+
+731: 731_my_calendar_II.cpp
+	clang++ -o $(BIN)/$@ $< -g
+	@$(BIN)/$@
+
+641: 641_design_circular_deque.cpp
 	clang++ -o $(BIN)/$@ $< -g
 	@$(BIN)/$@
