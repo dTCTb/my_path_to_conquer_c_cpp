@@ -1,4 +1,4 @@
-LEETCODE=1 539 884 179 241 214 386 2707 3043 2416 729 731 641
+LEETCODE=1 539 884 179 241 214 386 2707 3043 2416 729 731 641 432
 BIN=./bin
 
 all: $(LEETCODE)
@@ -49,5 +49,9 @@ all: $(LEETCODE)
 	@$(BIN)/$@
 
 641: 641_design_circular_deque.cpp
+	clang++ -o $(BIN)/$@ $< -g
+	@$(BIN)/$@
+
+432: 432_allone_data_structure.cpp
 	clang++ -o $(BIN)/$@ $< -g
 	@$(BIN)/$@
