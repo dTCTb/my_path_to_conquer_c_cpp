@@ -1,4 +1,4 @@
-LEETCODE=1 539 884 179 241 214 386 2707 3043 2416 729 731 641 432 1381 1497 1331 1590
+LEETCODE=1 539 884 179 241 214 386 2707 3043 2416 729 731 641 432 1381 1497 1331 1590 2491
 LEETCODE_COMPILER_SETTING= -O2 -fsanitize=address
 # ASAN_OPTIONS=detect_leaks=1
 BIN=./bin
@@ -72,4 +72,8 @@ all: $(LEETCODE)
 
 1590: 1590_make_sum_divisible_by_p.cpp
 	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
+
+2491: 2491_divide_players_into_teams_of_equal_skill.cpp
+	clang++ -o $(BIN)/$@ $< -g
 	@$(BIN)/$@
