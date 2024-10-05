@@ -13,6 +13,10 @@ my_merge_sort: my_merge_sort.cpp
 my_quick_sort: quick_sort.cpp
 	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
 
+my_sliding_window: my_sliding_window.cpp
+	$(CC) $(CFLAGS) -fsanitize=address -o $(BIN)/$@ $<
+	@$(BIN)/$@
+
 # Other
 
 clean:
