@@ -97,3 +97,7 @@ all: $(LEETCODE)
 962 : 962_maximum_width_ramp.cpp
 	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
 	@$(BIN)/$@
+
+9 : 9_palindrome_number.cpp
+	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
