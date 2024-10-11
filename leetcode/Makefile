@@ -1,4 +1,4 @@
-LEETCODE=1 539 884 179 241 214 386 2707 3043 2416 729 731 641 432 1381 1497 1331 1590 2491 567 1813 2696 921 962 9
+LEETCODE=1 539 884 179 241 214 386 2707 3043 2416 729 731 641 432 1381 1497 1331 1590 2491 567 1813 2696 921 962 9 1942
 LEETCODE_COMPILER_SETTING= -O2 -fsanitize=address
 # ASAN_OPTIONS=detect_leaks=1
 BIN=./bin
@@ -99,5 +99,9 @@ all: $(LEETCODE)
 	@$(BIN)/$@
 
 9 : 9_palindrome_number.cpp
+	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
+
+1942 : 1942_the_number_of_the_smallest_unoccupied_chair.cpp
 	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
 	@$(BIN)/$@
