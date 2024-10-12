@@ -1,4 +1,4 @@
-LEETCODE=1 539 884 179 241 214 386 2707 3043 2416 729 731 641 432 1381 1497 1331 1590 2491 567
+LEETCODE=1 539 884 179 241 214 386 2707 3043 2416 729 731 641 432 1381 1497 1331 1590 2491 567 1813 2696 921 962 9 1942 2406
 LEETCODE_COMPILER_SETTING= -O2 -fsanitize=address
 # ASAN_OPTIONS=detect_leaks=1
 BIN=./bin
@@ -79,5 +79,33 @@ all: $(LEETCODE)
 	@$(BIN)/$@
 
 567: 567_permutation_in_string.cpp
+	clang++ -o $(BIN)/$@ $< -g
+	@$(BIN)/$@
+
+1813: 1813_sentence_similarity_iii.cpp
+	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
+
+2696: 2696_minimum_string_length_after_removing_substrings.cpp
+	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
+
+921 : 921_minimum_add_to_make_parentheses_valid.cpp
+	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
+
+962 : 962_maximum_width_ramp.cpp
+	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
+
+9 : 9_palindrome_number.cpp
+	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
+
+1942 : 1942_the_number_of_the_smallest_unoccupied_chair.cpp
+	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
+
+2406 : 2406_divide_intervals_into_minimum_number_of_groups.cpp
 	clang++ -o $(BIN)/$@ $< -g
 	@$(BIN)/$@
