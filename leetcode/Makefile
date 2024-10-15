@@ -110,6 +110,10 @@ all: $(LEETCODE)
 	clang++ -o $(BIN)/$@ $< -g
 	@$(BIN)/$@
 
+2530: 2530_maximal_score_after_applying_k_operations.cpp
+	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
+
 2938: 2938_separate_black_and_white_balls.cpp
 	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
 	@$(BIN)/$@
