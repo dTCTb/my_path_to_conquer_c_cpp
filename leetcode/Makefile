@@ -1,4 +1,4 @@
-LEETCODE=1 539 884 179 241 214 386 2707 3043 2416 729 731 641 432 1381 1497 1331 1590 2491 567 1813 2696 921 962 9 1942 2406
+LEETCODE=1 539 884 179 241 214 386 2707 3043 2416 729 731 641 432 1381 1497 1331 1590 2491 567 1813 2696 921 962 9 1942 2406 2938
 LEETCODE_COMPILER_SETTING= -O2 -fsanitize=address
 # ASAN_OPTIONS=detect_leaks=1
 BIN=./bin
@@ -108,4 +108,8 @@ all: $(LEETCODE)
 
 2406 : 2406_divide_intervals_into_minimum_number_of_groups.cpp
 	clang++ -o $(BIN)/$@ $< -g
+	@$(BIN)/$@
+
+2938: 2938_separate_black_and_white_balls.cpp
+	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
 	@$(BIN)/$@
