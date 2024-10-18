@@ -1,4 +1,4 @@
-LEETCODE=1 539 884 179 241 214 386 2707 3043 2416 729 731 641 432 1381 1497 1331 1590 2491 567 1813 2696 921 962 9 1942 2406 2938
+LEETCODE=1 539 884 179 241 214 386 2707 3043 2416 729 731 641 432 1381 1497 1331 1590 2491 567 1813 2696 921 962 9 1942 2406 2938 1405 670 2044
 LEETCODE_COMPILER_SETTING= -O2 -fsanitize=address
 # ASAN_OPTIONS=detect_leaks=1
 BIN=./bin
@@ -115,5 +115,17 @@ all: $(LEETCODE)
 	@$(BIN)/$@
 
 2938: 2938_separate_black_and_white_balls.cpp
+	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
+
+1405: 1405_longest_happy_string.cpp
+	clang++ -o $(BIN)/$@ $< -g # $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
+
+670: 670_maximum_swap.cpp
+	clang++ -o $(BIN)/$@ $< -g # $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
+
+2044: 2044_count_number_of_maximum_bitwise_or_subsets.cpp
 	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
 	@$(BIN)/$@
