@@ -1,4 +1,4 @@
-LEETCODE=1 539 884 179 241 214 386 2707 3043 2416 729 731 641 432 1381 1497 1331 1590 2491 567 1813 2696 921 962 9 1942 2406 2938 1405 670 2044 1545 1106 1593
+LEETCODE=1 539 884 179 241 214 386 2707 3043 2416 729 731 641 432 1381 1497 1331 1590 2491 567 1813 2696 921 962 9 1942 2406 2938 1405 670 2044 1545 1106 1593 951
 LEETCODE_COMPILER_SETTING= -O2 -fsanitize=address
 # ASAN_OPTIONS=detect_leaks=1
 BIN=./bin
@@ -141,3 +141,7 @@ all: $(LEETCODE)
 1593: 1593_split_a_string_into_the_max_number_of_unique_substrings.cpp
 	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
 	@$(BIN)/$@
+
+951: 951_flip_equivalent_binary_tree.cpp
+	clang++ -o $(BIN)/$@ $< -std=c++20
+	@echo "Doesn't has TreeNode implementation so nothing to run"
