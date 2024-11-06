@@ -11,51 +11,34 @@ class Solution {
         if (is_sorted(nums.cbegin(), nums.cend(), less<int>()))
             return true;
 
-        return solve(nums);
-    }
-
-    static bool solve(const vector<int> &nums) noexcept {
-        vector<int> bitSet;
-        bitSet.reserve(nums.size());
-
-        function<void(const int &)> countSetBit =
-            [&bitSet](const int &e) -> void {
+        function<int(const int &)> countSetBit = [](const int &e) -> int {
             int tmp{e}, cnt{};
             while (tmp) {
                 if (tmp & 1)
                     ++cnt;
                 tmp >>= 1;
             }
-            bitSet.push_back(cnt);
+            return cnt;
         };
 
-        for_each(nums.begin(), nums.end(), countSetBit);
-
-        // vector<int> bitSetDup{bitSet};
-        // vector<pair<int, int>> bin(unique(bitSetDup.begin(), bitSetDup.end())
-        // - bitSetDup.begin(), {256, 0});
         vector<pair<int, int>> bin{};
         bin.reserve(nums.size());
-        int tmp{bitSet[0]}, min{256}, max{};
-        for (size_t i{}, j{}; i < nums.size(); ++i) {
-            if (bitSet[i] == tmp) {
-                // bin[j].first = nums[i] < bin[j].first ? nums[i] :
-                // bin[j].first; bin[j].second =
-                //     nums[i] > bin[j].second ? nums[i] : bin[j].second;
+        int tmp{countSetBit(nums[0])};
+        int min{256}, max{};
+        for (size_t i{}; i < nums.size(); ++i) {
+            if (int b{countSetBit(nums[i])}; b == tmp) {
                 min = nums[i] < min ? nums[i] : min;
                 max = nums[i] > max ? nums[i] : max;
             } else {
-                tmp = bitSet[i--];
+                tmp = b;
+                --i;
                 bin.push_back({min, max});
                 min = 256;
                 max = 0;
-                ++j;
             }
         }
         bin.push_back({min, max});
 
-        // printArr(nums); cout.put('\n');
-        // printArr(bitSet); cout.put('\n');
         // for (pair<int, int> &p : bin)
         //     cout << '(' << p.first << ',' << p.second << ") ";
         // cout.put('\n');
