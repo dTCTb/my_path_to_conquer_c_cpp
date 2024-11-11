@@ -1,5 +1,5 @@
 LEETCODE=1 539 884 179 241 214 386 2707 3043 2416 729 731 641 432 1381 1497 1331 1590 2491 567 1813 2696 921 962 9 1942 2406 2938 1405 670 2044 1545 1106 1593 951 1233 1277 2684
-NOV2024=1957 2490 796
+NOV2024=1957 2490 796 3163 2914 3011 3133 3097 2601
 LEETCODE_COMPILER_SETTING= -O2 -fsanitize=address
 # ASAN_OPTIONS=detect_leaks=1
 BIN=./bin
@@ -168,5 +168,29 @@ all: $(LEETCODE)
 	@$(BIN)/$@
 
 796: 796_rotate_string.cpp
+	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
+
+3163: 3163_string_compression_iii.cpp
+	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
+
+2914: 2914_minimum_number_of_changes_to_make_binary_string_beautiful.cpp
+	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
+
+3011: 3011_find_if_array_can_be_sorted.cpp
+	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
+
+3133: 3133_minimum_array_end.cpp
+	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
+
+3097: 3097_shortest_subarray_with_or_at_least_k_ii.cpp
+	clang++ -o $(BIN)/$@ $< -g # $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
+
+2601: 2601_prime_subtraction_operation.cpp
 	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
 	@$(BIN)/$@
