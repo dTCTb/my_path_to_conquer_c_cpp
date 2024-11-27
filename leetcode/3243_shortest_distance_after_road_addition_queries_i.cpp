@@ -25,24 +25,86 @@ ostream &operator<<(ostream &c, const vvInt &arr) {
     return c;
 }
 
+struct node {
+    vector<node *> child;
+    int value;
+    node(int x, int j) {
+        child.reserve(x);
+        this->value = j;
+    }
+};
+
+ostream &operator<<(ostream &c, const node *p /*arent*/) {
+    queue<const node *> q /*ueue*/;
+    q.push(p);
+    while (!q.empty()) {
+        const node *cur{q.front()};
+        c << cur->value << ' ';
+        for (node *n : cur->child)
+            q.push(n);
+        q.pop();
+    }
+    return c;
+}
+
 class Solution {
   public:
     static vInt shortestDistanceAfterQueries(int n,
                                              const vvInt &queries) noexcept {
-        vInt ans{}, city(n, 1);
+        vector<node *> s(n, nullptr);
+        vInt ans{};
         ans.reserve(queries.size());
 
-        for (const vInt &road : queries) {
-            if (int t{road[1] - road[0]}; t > city[road[0]])
-                city[road[0]] = t; // road[1] - road[0];
-            size_t count{};
-            for (size_t i{}; i < city.size() - 1; i += city[i], ++count)
-                ;
-            ans.push_back(count);
+        s[0] = new node{n, 0};
+
+        for (int i{1}; i < n; ++i) {
+            s[i] = new node{n, i};
+            s[i - 1]->child.push_back(s[i]);
         }
 
-        cout << ans << '\n';
-        cout << city << '\n';
+        cout << s[0] << '\n';
+
+        for (const vInt &query : queries) {
+            vector<bool> m(n, false);
+            s[query[0]]->child.push_back(
+                s[query[1]]); // add a new shortest path
+            queue<node *> q{};
+            for (node *e : s[0]->child) {
+                m[e->value] = true;
+                q.push(e);
+            }
+            q.push(nullptr);
+            int count{};
+
+            while (!q.empty()) {
+                node *cur{q.front()};
+                while (cur != nullptr) {
+                    if (cur->value == n - 1) {
+                        break;
+                    }
+                    for (node *n : cur->child) {
+                        if (!m[n->value]) {
+                            q.push(n);
+                            m[n->value] = true;
+                        }
+                    }
+                    q.pop();
+                    cur = q.front();
+                }
+                if (cur != nullptr && cur->value == n - 1) {
+                    ++count;
+                    break;
+                }
+                q.pop();
+                ++count;
+                // while (q.front() == nullptr)
+                //     q.pop();
+                //     cur = q.front();
+                // }
+                q.push(nullptr);
+            }
+            ans.push_back(count);
+        }
 
         return ans;
     }
@@ -56,7 +118,7 @@ ostream &operator<<(ostream &c, const testcase &t) {
     c << "n: " << n << '\n';
     c << "queries: " << queries << '\n';
     c << "answer: " << answer << '\n';
-    Solution::shortestDistanceAfterQueries(n, queries);
+    c << Solution::shortestDistanceAfterQueries(n, queries) << '\n';
     c << "- -- - -- - -- -\n";
     return c;
 }
