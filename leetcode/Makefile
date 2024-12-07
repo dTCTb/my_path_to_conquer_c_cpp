@@ -1,5 +1,6 @@
 LEETCODE=1 539 884 179 241 214 386 2707 3043 2416 729 731 641 432 1381 1497 1331 1590 2491 567 1813 2696 921 962 9 1942 2406 2938 1405 670 2044 1545 1106 1593 951 1233 1277 2684
-NOV2024=1957 2490 796 3163 2914 3011 3133 3097 2601 2070 2563 2064 3254 1652 2461 1861
+NOV2024=1957 2490 796 3163 2914 3011 3133 3097 2601 2070 2563 2064 3254 1652 2461 1861 1975 2924 3243
+DEC2024=1346 1455 2109 2825 2554
 LEETCODE_COMPILER_SETTING= -O2 -fsanitize=address
 # ASAN_OPTIONS=detect_leaks=1
 BIN=./bin
@@ -221,4 +222,40 @@ all: $(LEETCODE)
 
 1861: 1861_rotating_the_box.cpp
 	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING) -Wno-braced-scalar-init
+	@$(BIN)/$@
+
+1975: 1975_maximum_matrix_sum.cpp
+	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING) -Wno-braced-scalar-init
+	@$(BIN)/$@
+
+2924: 2924_find_champion_ii.cpp
+	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
+
+3243: 3243_shortest_distance_after_road_addition_queries_i.cpp
+	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
+
+1346: 1346_check_if_n_and_its_double_exist.cpp
+	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
+
+1455: 1455_check_if_a_word_occurs_as_a_prefix_of_any_word_in_a_sentence.cpp
+	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
+
+2109: 2109_adding_spaces_to_a_string.cpp
+	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
+
+2825: 2825_make_string_a_subsequence_using_cyclic_increments.cpp
+	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
+
+2337: ./2337_move_pieces_to_obtain_a_string.cpp
+	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
+
+2554: 2554_maximum_number_of_integers_to_choose_from_a_range_i.cpp
+	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
 	@$(BIN)/$@
