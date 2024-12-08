@@ -4,9 +4,8 @@
 
 using namespace std;
 
-#define START 0
-#define END 1
-#define VALUE 2
+// #define DEBUG
+enum CONST { START, END, VALUE };
 typedef std::vector<int> vInt;
 typedef std::vector<vInt> vvInt;
 
@@ -24,15 +23,17 @@ class Solution {
         sort(events.begin(), events.end(), byStartAsc());
         vInt dp{dpMaxValue(events)};
 
-        /* DEBUG */ print(events, dp);
+#if defined DEBUG
+        print(events, dp);
+#endif
         for (int i{}; i < events.size(); ++i) {
             int nextEventIdx{nearestNextEvent(events, i)};
-            if (nextEventIdx != -1)
-                answer = max({answer, events[i][VALUE] + dp[nextEventIdx]});
-            else
-                answer = std::max({answer, events[i][VALUE]});
-            /* DEBUG */ cout << "i: " << i << " -> "
-                             << nearestNextEvent(events, i) << '\n';
+            answer = nextEventIdx != -1
+                         ? max({answer, events[i][VALUE] + dp[nextEventIdx]})
+                         : answer = max({answer, events[i][VALUE]});
+#if defined DEBUG
+            cout << "i: " << i << " -> " << nextEventIdx << '\n';
+#endif
         }
         return answer;
     }
@@ -42,13 +43,11 @@ class Solution {
         if (e[i][END] >= e.back()[START])
             return -1;
         int l{i + 1}, m{}, r{static_cast<int>(e.size() - 1)};
-        while (l <= r) {
-            m = (l + r) / 2;
-            if (e[m][START] > e[i][END])
+        while (l <= r)
+            if (m = (l + r) / 2; e[m][START] > e[i][END])
                 r = m - 1;
             else
                 l = m + 1;
-        }
         return e[m][START] > e[i][END] ? m : m + 1;
     }
 
@@ -58,14 +57,12 @@ class Solution {
         dp.front() = e.front()[VALUE];
         dp.back() = e.back()[VALUE];
         int tmpMax{dp.back()};
-        for (size_t i{e.size() - 2}; i > 0; --i) {
-            if (e[i][VALUE] > tmpMax)
-                tmpMax = e[i][VALUE];
-            dp[i] = tmpMax;
-        }
+        for (size_t i{e.size() - 2}; i > 0; --i)
+            dp[i] = tmpMax = e[i][VALUE] > tmpMax ? e[i][VALUE] : tmpMax;
         return dp;
     }
 
+#if defined DEBUG
     static void print(const vvInt &arr, const vInt &dp) noexcept {
         int count{};
         cout << setw(sizeof("[00000]") - 1) << "index" << setw(9) << "start"
@@ -77,6 +74,7 @@ class Solution {
                  << dp[count++] << '\n';
         cout.put('\n');
     }
+#endif
 };
 
 typedef Solution S;
