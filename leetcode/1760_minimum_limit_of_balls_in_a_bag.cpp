@@ -1,5 +1,4 @@
 #include <iostream>
-#include <list>
 #include <vector>
 
 using namespace std;
@@ -18,35 +17,60 @@ ostream &operator<<(ostream &c, const std::vector<int> arr) {
 typedef std::vector<int> vInt;
 class Solution {
   public:
-    static int minimumSize(const vInt &nums, const int maxOperations) noexcept {
-        priority_queue<int> pq{nums.cbegin(), nums.cend()};
-        for (int i{}; i < maxOperations; ++i) {
-            int tmp = pq.top();
-            // cout << tmp << ' ';
-            pq.pop();
-            // if (pq.empty())
-            //     break;
-            if (tmp % 2 == 0) {
-                pq.push(tmp / 2);
-                pq.push(tmp / 2);
+    static int minimumSize(vInt &nums, int maxOperations) noexcept {
+        // Binary search bounds
+        int left = 1;
+        int right = 0;
+
+        for (auto num : nums) {
+            right = max(right, num);
+        }
+
+        // Perform binary search to find the optimal maxBallsInBag
+        while (left < right) {
+            int middle = (left + right) / 2;
+
+            // Check if a valid distribution is possible with the current middle
+            // value
+            if (isPossible(middle, nums, maxOperations)) {
+                right = middle; // If possible, try a smaller value (shift
+                                // right to middle)
             } else {
-                if ((tmp / 2 + 1) % 2 == 0) {
-                    pq.push(tmp / 2);
-                    pq.push(tmp - tmp / 2);
-                } else {
-                    pq.push(tmp / 2 - 1);
-                    pq.push(tmp / 2 + 1);
-                }
+                left = middle + 1; // If not possible, try a larger value
+                                   // (shift left to middle + 1)
             }
         }
-        return pq.top();
+
+        // Return the smallest possible value for maxBallsInBag
+        return left;
+    }
+
+  private:
+    // Helper function to check if a distribution is possible for a given
+    // maxBallsInBag
+    static bool isPossible(int maxBallsInBag, vInt &nums, int maxOperations) {
+        int totalOperations = 0;
+
+        // Iterate through each bag in the array
+        for (int num : nums) {
+            // Calculate the number of operations needed to split this bag
+            int operations = ceil(num / (double)maxBallsInBag) - 1;
+            totalOperations += operations;
+
+            // Total operations exceed maxOperations, return false
+            if (totalOperations > maxOperations)
+                return false;
+        }
+
+        // We can split the balls within the allowed operations, return true
+        return true;
     }
 };
 
 typedef std::tuple<std::vector<int>, int, int> testcase;
 typedef std::unordered_map<size_t, testcase> testcases;
 
-ostream &operator<<(ostream &c, const testcases::value_type &pair) noexcept {
+ostream &operator<<(ostream &c, testcases::value_type &pair) noexcept {
     size_t no = pair.first;
     auto &[nums, maxOperations, answer] = pair.second;
     c << "Testcase " << no << '\n';
