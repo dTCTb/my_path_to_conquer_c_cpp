@@ -7,18 +7,15 @@ typedef std::vector<int> vInt;
 class Solution {
   public:
     static int maxChunksToSorted(const vInt &arr) noexcept {
-        int ans{};
+        int ans{}, arrSum{}, sum{};
         for (int i{}; i < arr.size(); ++i) {
-            int j{i}, max{};
-            bool reach{false};
-            while (j < arr.size() && ((arr[j] != i && !reach) || j < max)) {
-                if (!reach)
-                    reach = arr[j] == i;
-                max = arr[j] > max ? arr[j] : max;
-                ++j;
+            sum += i;
+            arrSum += arr[i];
+            while (arrSum != sum) {
+                sum += ++i;
+                arrSum += arr[i];
             }
             ++ans;
-            i = j;
         }
         cout << ans << '\n';
         return ans;
