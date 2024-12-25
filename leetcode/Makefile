@@ -1,6 +1,6 @@
 LEETCODE=1 539 884 179 241 214 386 2707 3043 2416 729 731 641 432 1381 1497 1331 1590 2491 567 1813 2696 921 962 9 1942 2406 2938 1405 670 2044 1545 1106 1593 951 1233 1277 2684
 NOV2024=1957 2490 796 3163 2914 3011 3133 3097 2601 2070 2563 2064 3254 1652 2461 1861 1975 2924 3243
-DEC2024=1346 1455 2109 2825 2554 1760 2054 2779 2558 3264 2182 1475 769 2415
+DEC2024=1346 1455 2109 2825 2554 1760 2054 2779 2558 3264 2182 1475 769 2415 515
 LEETCODE_COMPILER_SETTING= -O2 -fsanitize=address
 # ASAN_OPTIONS=detect_leaks=1
 BIN=./bin
@@ -294,3 +294,6 @@ all: $(LEETCODE)
 
 2415: 2415_reverse_old_levels_of_binary_tree.cpp
 	@echo "Run 2415. Reverse Old Levels of Binary Tree on LeetCode Platform, as I didn't write the implementation of TreeNode"
+
+515: 515_find_largest_value_in_each_tree_row.cpp
+	@echo "Run 515. Find Largest Value in Each Tree Row on LeetCode Platform, as I didn't write the implementation of TreeNode"
