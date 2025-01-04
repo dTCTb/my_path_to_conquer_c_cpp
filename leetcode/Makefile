@@ -1,6 +1,7 @@
 LEETCODE=1 539 884 179 241 214 386 2707 3043 2416 729 731 641 432 1381 1497 1331 1590 2491 567 1813 2696 921 962 9 1942 2406 2938 1405 670 2044 1545 1106 1593 951 1233 1277 2684
 NOV2024=1957 2490 796 3163 2914 3011 3133 3097 2601 2070 2563 2064 3254 1652 2461 1861 1975 2924 3243
-DEC2024=1346 1455 2109 2825 2554
+DEC2024=1346 1455 2109 2825 2554 1760 2054 2779 2558 3264 2182 1475 769 2415 515 494
+JAN2025=1422 2559 2270 1930
 LEETCODE_COMPILER_SETTING= -O2 -fsanitize=address
 # ASAN_OPTIONS=detect_leaks=1
 BIN=./bin
@@ -257,5 +258,63 @@ all: $(LEETCODE)
 	@$(BIN)/$@
 
 2554: 2554_maximum_number_of_integers_to_choose_from_a_range_i.cpp
+	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
+
+1760: 1760_minimum_limit_of_balls_in_a_bag.cpp
+	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
+
+2054: 2054_two_best_non_overlapping_events.cpp
+	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
+
+2779: 2779_maximum_beauty_of_an_array_after_applying_operation.cpp
+	clang++ -o $(BIN)/$@ $< -g # $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
+
+2558: 2558_take_gifts_from_the_richest_pile.cpp
+	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
+
+3264: 3264_final_array_state_after_k_multiplication_operations_i.cpp
+	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
+
+2182: 2182_construct_string_with_repeat_limit.cpp
+	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
+
+1475: 1475_final_prices_with_a_special_discount_in_a_shop.cpp
+	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
+
+769: 769_max_chunks_to_make_sorted.cpp
+	clang++ -o $(BIN)/$@ $< -g # $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
+
+2415: 2415_reverse_old_levels_of_binary_tree.cpp
+	@echo "Run 2415. Reverse Old Levels of Binary Tree on LeetCode Platform, as I didn't write the implementation of TreeNode"
+
+515: 515_find_largest_value_in_each_tree_row.cpp
+	@echo "Run 515. Find Largest Value in Each Tree Row on LeetCode Platform, as I didn't write the implementation of TreeNode"
+
+494: 494_target_sum.cpp
+	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
+
+1422: 1422_maximum_score_after_splitting_a_string.cpp
+	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
+
+2559: 2559_count_vowel_strings_in_ranges.cpp
+	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
+
+2270: 2270_number_of_ways_to_split_array.cpp
+	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
+
+1930: 1930_unique_length-3_palindromic_subsequences.cpp
 	clang++ -o $(BIN)/$@ $< -g $(LEETCODE_COMPILER_SETTING)
 	@$(BIN)/$@
