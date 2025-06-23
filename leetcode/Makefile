@@ -5,6 +5,7 @@ JAN2025=1422 2559 2270 1930 2381 1408 1769 2185 916 1400 2116 3223 2657 2683 407
 MAR2025=2460 2161 3208 1358 2529 2401 3191
 APR2025=2873 1863 416 3396
 MAY2025=1128
+JUNE2025=1061
 LEETCODE_COMPILER_SETTING= -O2 -fsanitize=address
 FLAG?=
 # ASAN_OPTIONS=detect_leaks=1
@@ -492,5 +493,9 @@ all: $(LEETCODE)
 	@$(BIN)/$@
 
 1128: 1128_number_of_equivalent_domino_pairs.cpp
+	clang++ -std=c++20 -o $(BIN)/$@ $< -g $(FLAG) $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
+
+1061: 1061_lexicographically_smallest_equivalent_string.cpp
 	clang++ -std=c++20 -o $(BIN)/$@ $< -g $(FLAG) $(LEETCODE_COMPILER_SETTING)
 	@$(BIN)/$@
