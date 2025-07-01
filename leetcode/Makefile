@@ -499,3 +499,7 @@ all: $(LEETCODE)
 1061: 1061_lexicographically_smallest_equivalent_string.cpp
 	clang++ -std=c++20 -o $(BIN)/$@ $< -g $(FLAG) $(LEETCODE_COMPILER_SETTING)
 	@$(BIN)/$@
+
+3330: 3330_find_the_original_typed_string_i.cpp
+	clang++ -std=c++20 -o $(BIN)/$@ $< -g $(FLAG) $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
