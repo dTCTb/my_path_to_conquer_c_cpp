@@ -503,3 +503,7 @@ all: $(LEETCODE)
 3330: 3330_find_the_original_typed_string_i.cpp
 	clang++ -std=c++20 -o $(BIN)/$@ $< -g $(FLAG) $(LEETCODE_COMPILER_SETTING)
 	@$(BIN)/$@
+
+1695: 1695_maximum_erasure_value.cpp
+	clang++ -std=c++20 -o $(BIN)/$@ $< -g $(FLAG) $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
