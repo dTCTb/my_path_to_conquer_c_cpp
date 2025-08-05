@@ -507,3 +507,7 @@ all: $(LEETCODE)
 1695: 1695_maximum_erasure_value.cpp
 	clang++ -std=c++20 -o $(BIN)/$@ $< -g $(FLAG) $(LEETCODE_COMPILER_SETTING)
 	@$(BIN)/$@
+
+3477: 3477_fruits_into_baskets_ii.cpp
+	clang++ -std=c++20 -o $(BIN)/$@ $< -g $(FLAG) $(LEETCODE_COMPILER_SETTING)
+	@$(BIN)/$@
